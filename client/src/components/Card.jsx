@@ -1,12 +1,17 @@
-const logo = './src/assets/logo.svg'
+import DetailsPruducts from "./DetailsProducts"
+import ImageProduct from "./ImageProducts"
+import NavButtons from "./NavCardButtons"
+
+
 
 const Card = () => {
   return (
     <section className="cardWraper">
-      <figure className="img-conteiner">
-        <img src={ logo } alt="Imagen de producto" className="image-embed" />
-      </figure>
-      
+      <ImageProduct />
+      <article className="details">
+        <DetailsPruducts />
+        <NavButtons />
+      </article>
     </section>
   )
 }

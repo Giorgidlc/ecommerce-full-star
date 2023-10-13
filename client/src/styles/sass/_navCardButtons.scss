@@ -1,12 +1,11 @@
-.navButtons {
+.nav-cardButtons {
   display: flex;
-  flex-direction: column;
+  justify-content: end;
   align-items: end;
   width: 100%;
-  gap: 0.75rem;
 }
 
-.navButtons__btn-nav {
+.nav-cardButtons__btn-nav {
   display: flex;
   width: 2.5rem;
   background: transparent;

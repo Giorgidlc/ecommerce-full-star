@@ -1,29 +1,9 @@
-.details-content {
-  display: flex;
-  gap: 0.5rem;
-  width: 80%;
-  padding: 1rem 0;
-}
-
-.logo{
-  display: flex;
-  width: 3rem;
-  align-items: start;
-}
-
-.logo__embed {
-  flex-grow: 1;
-  width: 0;
-  object-fit: contain;
-}
-
 .all-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
   color: white;
   gap: 0.5rem;
-
 }
 
 .all-description__title {
