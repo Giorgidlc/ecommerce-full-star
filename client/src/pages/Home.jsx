@@ -1,6 +1,7 @@
 import '../styles/css/home.css'
 import DetailsProducts from "../components/DetailsProducts"
 import NavButtons from '../components/NavButtons'
+import LogoDetailsProducts from '../components/LogoDetailsProducts'
 
 
 const Home = () => {
@@ -12,11 +13,13 @@ const Home = () => {
       <section className="header">
         {/* colocar el componente de header */}
       </section>
-      <section className="detailsProducts">
-        <article className='detailsProducts__content'>
+      <section className="main-home">
+        <section className='details-content'>
+          <LogoDetailsProducts />
           <DetailsProducts />
-          <NavButtons />
-        </article>
+        </section>
+        
+        <NavButtons />
       </section> 
       <section className="footer">
         {/* colocar componente de footer */}
