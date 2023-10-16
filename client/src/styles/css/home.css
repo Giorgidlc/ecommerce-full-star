@@ -87,10 +87,28 @@
 
 .headerButtons {
   display: flex;
-  align-items: center;
+  width: 18.4375rem;
   justify-content: space-between;
-  background-color: transparent;
-  padding: 10px 20px;
+  align-items: center;
+  padding: 2.88rem 1.94rem;
+}
+
+.headerButtons__btn-header {
+  background: transparent;
+  border: none;
+}
+
+.icon-user, .icon-car {
+  width: 1.9375rem;
+  height: 1.9375rem;
+}
+
+.titleCategory-cakes {
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .layout {
