@@ -85,6 +85,14 @@
   align-items: center;
 }
 
+.headerButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 10px 20px;
+}
+
 .layout {
   position: relative;
   width: 360px;
