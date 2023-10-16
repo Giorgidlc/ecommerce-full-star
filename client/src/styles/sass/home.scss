@@ -1,0 +1,28 @@
+@use 'footer';
+
+.layout {
+    width: 360px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: grid;
+    grid: 
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    /1fr;
+  
+    border: 1px solid red;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
