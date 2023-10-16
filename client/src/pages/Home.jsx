@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <main className="layout">
       <section className="video-background">
-        <video autoPlay muted src="" className="videoproduct"></video>
+        <video autoPlay muted src="src/assets/carrot-cake.mp4" className="videoproduct"></video>
       </section>
       <section className="header">
         <Header />
@@ -20,9 +20,9 @@ const Home = () => {
           <NavButtons />
         </article>
       </section> 
-      <section className="footer">
+      <footer className="footer">
           <Footer />
-      </section>
+      </footer>
   </main>
   )
 }
