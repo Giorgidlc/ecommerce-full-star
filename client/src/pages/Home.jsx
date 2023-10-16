@@ -1,6 +1,7 @@
 import '../styles/css/home.css'
-import DetailsProducts from "../components/DetailsProducts"
-import NavButtons from '../components/NavButtons'
+import DetailsProducts from "../components/DetailsProducts.jsx"
+import NavButtons from '../components/NavButtons.jsx'
+import { Footer } from '../components/Footer.jsx'
 
 
 const Home = () => {
@@ -19,11 +20,10 @@ const Home = () => {
         </article>
       </section> 
       <section className="footer">
-        {/* colocar componente de footer */}
+          <Footer />
       </section>
   </main>
   )
 }
 
 export default Home
-
