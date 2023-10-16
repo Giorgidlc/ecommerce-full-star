@@ -2,6 +2,7 @@ import '../styles/css/home.css'
 import DetailsProducts from "../components/DetailsProducts.jsx"
 import NavButtons from '../components/NavButtons.jsx'
 import { Footer } from '../components/Footer.jsx'
+import Header from '../components/Header'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
         <video autoPlay muted src="" className="videoproduct"></video>
       </section>
       <section className="header">
-        {/* colocar el componente de header */}
+        <Header />
       </section>
       <section className="detailsProducts">
         <article className='detailsProducts__content'>
