@@ -1,12 +1,19 @@
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
+import Home from '../pages/Home.jsx'
+import ProductsCards from '../pages/ProductsCards.jsx'
 
-const root = () => {
+const Root = () => {
   return (
     <>
-      <Route path='/' />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/view-list' element={<ProductsCards />} />
+      </Routes>
+      
+      
     </> 
   )
 }
 
-export default root
+export default Root

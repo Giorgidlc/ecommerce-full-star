@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sass-home": "sass --watch ./src/styles/sass/home.scss:./src/styles/css/home.css",
+    "sass-products": "sass --watch ./src/styles/sass/productsCards.scss:./src/styles/css/productsCards.css"
   },
   "dependencies": {
     "react": "18.2.0",

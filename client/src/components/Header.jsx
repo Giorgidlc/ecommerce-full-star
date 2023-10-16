@@ -12,7 +12,6 @@ const Header = () => {
       <button className="headerButtons__btn-header">
         <img src={icons.at(1)} alt="" className="icon-car" />
       </button>
-      
     </header>
   )
 }

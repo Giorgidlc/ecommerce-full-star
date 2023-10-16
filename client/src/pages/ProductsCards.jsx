@@ -1,4 +1,6 @@
 import Card from '../components/Card'
+import Header from '../components/Header'
+import { Footer } from '../components/Footer'
 import '../styles/css/productsCards.css'
 
 
@@ -6,7 +8,7 @@ const CardsProducts = () => {
   return (
     <main className="layout">
       <section className="header">
-        {/* colocar el componente de header */}
+        <Header />
       </section>
       <section className="cardsProducts">
         <Card />
@@ -15,7 +17,7 @@ const CardsProducts = () => {
         <Card />
       </section> 
       <section className="footer">
-        {/* colocar componente de footer */}
+       <Footer />
       </section>
   </main>
   )

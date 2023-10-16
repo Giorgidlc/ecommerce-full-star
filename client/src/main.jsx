@@ -1,15 +1,16 @@
-import React from 'react'
+
 import ReactDOM from 'react-dom/client'
 import './styles/css/reset.css'
+import { BrowserRouter } from 'react-router-dom'
 
-import Home from './pages/Home.jsx'
-import ProductsCards from './pages/ProductsCards'
+import Root from './routes/root'
+
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home />
-    <ProductsCards />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Root />
+  </BrowserRouter>,
 )
 
