@@ -1,6 +1,6 @@
 const icons = ['/src/assets/icon-add.svg', '/src/assets/icon-fav.svg' ]
 
-const NavButtons = () => {
+const NavCardButtons = () => {
   return (
     <nav className="nav-cardButtons">
       <button className="nav-cardButtons__btn-nav">
@@ -13,4 +13,4 @@ const NavButtons = () => {
   )
 }
 
-export default NavButtons
+export default NavCardButtons

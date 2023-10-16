@@ -1,6 +1,6 @@
 import DetailsPruducts from "./DetailsProducts"
 import ImageProduct from "./ImageProducts"
-import NavButtons from "./NavCardButtons"
+import NavCardButtons from "./NavCardButtons"
 
 
 
@@ -10,7 +10,7 @@ const Card = () => {
       <ImageProduct />
       <article className="details">
         <DetailsPruducts />
-        <NavButtons />
+        <NavCardButtons />
       </article>
     </section>
   )
