@@ -1,0 +1,15 @@
+.cardWraper {
+  display: flex;
+  height: 9.6875rem;
+  padding: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 1.6rem;
+  background-color: #CF7E85;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
