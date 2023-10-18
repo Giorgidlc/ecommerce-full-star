@@ -1,4 +1,5 @@
-import request from "supertest";;
+import request from 'supertest';
+import app from '../src/index.ts';
 
 type HttpProductResponse<T> = {
     status: number;
