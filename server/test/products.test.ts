@@ -18,56 +18,58 @@ type HttpProductResponse<T> = {
     register_date: string;
 
   }
-describe("CRUD Test",() =>{
+describe("CRUD Products Test",() =>{
 
     //-----------------------------------------------GET----------------------------------------------------------   
        describe("GET /Products", () =>{
            let response : HttpProductResponse<Products>;
            beforeEach(async()=>{
-               response = await request(app).get('/books').send()
+               response = await request(app).get('/products').send()
            })
-           test('should return a response with status 200 and type json, when I send a Get request', async() => {
+           test('Should return a response with status 200 and type json, when I send a Get request', async() => {
                
                expect(response.status).toBe(200);
                expect(response.headers['content-type']).toContain('json');
            })
-           test("Should return all books",async() => {
+           test("Should return all products",async() => {
                expect(response.body).toBeInstanceOf(Array);
                  
            })
        })
        //-----------------------------------------------POST----------------------------------------------------------
-       describe('POST /books',() =>{ 
+       describe('POST /products',() =>{ 
    
-           const newBook = {
-               title: "test",
-               writer: "test",
-               book_description: "test",
+           const newProduct = {
+               user_name: "test",
+               surname: "test",
+               email: "test",
+               user_password: "test",
+               paying_method_id: "test",
            }
    
-           const wrongBook = {
+           const wrongProduct = {
                wrong_field:'test'
            }
    
            test('Should return a response with status 200 and type json', async () =>{
-               const response = await request(app).post('/books').send(newBook)
+               const response = await request(app).post('/products').send(newProduct)
                expect(response.status).toBe(200)
                expect(response.headers['content-type']).toContain('json')
            });
    
-           test('should return a message book created successfully', async () =>{
-               const response = await request(app).post('/books').send(newBook)
-               expect(response.body.message).toContain("The book has been created successfully!")
+           test('Should return a message product created successfully', async () =>{
+               const response = await request(app).post('/products').send(newProduct)
+               expect(response.body.message).toContain("The product has been created successfully!")//Se podría eliminar este test y meter esta lnea en el de arriba?
            })
    
-           test('should return a message insertion error If post wrong book ', async () =>{
-               const response = await request(app).post('/books').send(wrongBook)
+           test('Should return a message insertion error If post wrong product ', async () =>{
+               const response = await request(app).post('/products').send(wrongProduct)
                expect(response.status).toBe(500);
                expect(response.body.message).toContain("Field 'title' doesn't have a default value")
            })
    
            afterAll(async () => {
-               await BookModel.destroy({where:{title: 'test'}})
+               await ProductModel.destroy({where:{title: 'test'}})
            }) 
    
        })
