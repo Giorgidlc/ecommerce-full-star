@@ -39,28 +39,28 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Iniciar Sesión</h2>
+      <section className='loginForm'>
+        <h2 className='titleLoginForm'>Log in to Coockies & Dreams</h2>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>E-mail:</label>
+          <section className='email-inputSection'>
+            <label id='email--input'>E-mail:</label>
             <input
               type="text"
               value={this.state.email}
               onChange={this.handleEmailChange}
             />
-          </div>
-          <div>
-            <label>Password:</label>
+          </section>
+          <section className='password-inputSection'>
+            <label id='password--input'>Password:</label>
             <input
               type="password"
               value={this.state.password}
               onChange={this.handlePasswordChange}
             />
-          </div>
-          <button type="submit">Log In</button>
+          </section>
+          <button type="submit" id='login--Btn'>Log In</button>
         </form>
-      </div>
+      </section>
     );
   }
 }
