@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('dreams_and_cookies', 'root', '3commerce?FULLstar', {
+const db = new Sequelize('dreams_and_cookies', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql'
 
 })
 
-export default sequelize;
+export default db;

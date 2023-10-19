@@ -37,17 +37,17 @@ const ProductModel = db.define('products', {
     product_description: { type: DataTypes.STRING },
     price: { type: DataTypes.INTEGER },
     stock: { type: DataTypes.INTEGER },
-    product_type_id: { type: DataTypes.STRING },
+    product_type_id: { type: DataTypes.STRING} ,
     product_discount_id: { type: DataTypes.STRING },
 }, {
     timestamps: false
 });
 
-export function createProduct(productData: any) {
-    return ProductModel.create({
-        ...productData,
-        product_id: db.fn('UUID_TO_BIN', productData.product_id)
-    });
-}
+// export function createProduct(productData: any) {
+//     return ProductModel.create({
+//         ...productData,
+//         product_id: db.fn('UUID_TO_BIN', productData.product_id)
+//     });
+// }
 
 export default ProductModel;

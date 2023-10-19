@@ -2,13 +2,16 @@ import { Request,Response } from "express";
 import ProductModel from "../models/productModel.ts";
 
 
-const getProducts = async (_req: Request, res: Response) =>{
+const getProducts = async (_req: Request, res: Response) : Promise <Response> =>{
+    
     try {
         const products = await ProductModel.findAll();
-        res.json(products);
+        return res.json(products);
         
+        
+
     } catch (error : unknown ) {
-        res.status(500).json({message:(error as Error).message})
+        return res.status(500).json({message:(error as Error).message})
     }
 
 }
@@ -29,8 +32,9 @@ const getProduct = async (req: Request, res: Response) => {
 const createProduct = async (req: Request, res: Response) => {
     try {
         
-        await ProductModel.create(req.body);
-        res.json({message:'The Product has been created succesfully'});
+         let result = await ProductModel.create(req.body);
+         return response.json(result)
+        // res.json({message:'The Product has been created succesfully'});
         
     } catch (error : unknown ) {
         res.status(500).json({message:(error as Error).message})

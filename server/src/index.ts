@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import productRouter from './routes/productsRouter';
 import cors from 'cors';
 
@@ -7,15 +7,11 @@ const port = 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (_req, res) => {
-  res.send("jelow!!");
-  res.status(200).send();
-  
-})
+app.get('/', (_req: Request, res: Response) => {
+  res.status(200).send("jelow!!");
+});
 
-
-
-app.use('/products', productRouter)
+app.use('/products', productRouter);
 app.listen(port, () => console.log(`Running in http://localhost:${port}`));
 
 export default app;
