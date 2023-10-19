@@ -4,7 +4,7 @@ const icons = ['/src/assets/icon-list.svg', '/src/assets/icon-add.svg', '/src/as
 const NavButtons = () => {
   return (
     <nav className="navButtons">
-      <Link to='/view-list'>
+      <Link to='/products'>
       <button className="navButtons__btn-nav" >
         <img src={icons.at(0)} alt="" className="icon-embed" />
       </button>

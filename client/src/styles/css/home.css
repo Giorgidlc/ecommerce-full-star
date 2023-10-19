@@ -1,7 +1,7 @@
 .all-description {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: white;
   gap: 0.5rem;
 }
@@ -94,6 +94,18 @@
   font: bold 1rem sans-serif;
 }
 
+.logo {
+  display: flex;
+  width: 50%;
+  align-items: start;
+}
+
+.logo__embed {
+  flex-grow: 1;
+  width: 0;
+  object-fit: contain;
+}
+
 .layout {
   position: relative;
   width: 100%;
@@ -103,6 +115,7 @@
   margin: 0 auto;
   display: grid;
   grid: "header" auto "main" 1fr "footer" auto/1fr;
+  background: rgba(33, 33, 33, 0.3764705882);
 }
 
 .header {
@@ -112,13 +125,14 @@
 .detailsProducts {
   grid-area: main;
   display: flex;
+  align-items: end;
 }
 
 .detailsProducts__content {
   display: flex;
   width: 100%;
-  align-items: end;
   padding: 1.63rem;
+  gap: 1rem;
 }
 
 .video-background {

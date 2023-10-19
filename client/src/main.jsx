@@ -1,16 +1,16 @@
 
 import ReactDOM from 'react-dom/client'
 import './styles/css/reset.css'
-import { BrowserRouter } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 
-import Root from './routes/root'
+import router from './routes/router'
 
 
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Root />
-  </BrowserRouter>,
+
+    <RouterProvider router={ router } />,
+  
 )
 

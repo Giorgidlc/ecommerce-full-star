@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  width: 50%;
+  align-items: start;
+}
+
+.logo__embed {
+  flex-grow: 1;
+  width: 0;
+  object-fit: contain;
+}

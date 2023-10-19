@@ -2,6 +2,7 @@
 @use 'navButtons';
 @use 'footer';
 @use 'header';
+@use 'logo';
 
 .layout {
   position: relative;
@@ -16,6 +17,7 @@
     "main" 1fr
     "footer" auto
     / 1fr;
+    background: #21212160;
 }
 
 .header { 
@@ -24,12 +26,13 @@
 .detailsProducts { 
   grid-area: main;
   display: flex;
+  align-items: end;
 }
 .detailsProducts__content {
   display: flex;
   width: 100%;
-  align-items: end;
   padding: 1.63rem;
+  gap: 1rem;
 }
 
 .video-background {
@@ -40,6 +43,7 @@
   width: 100%;
   z-index: -1;
   background: #212121;
+ 
 }
 
 .videoproduct {

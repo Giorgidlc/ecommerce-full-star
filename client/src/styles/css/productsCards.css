@@ -1,7 +1,7 @@
 .all-description {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: white;
   gap: 0.5rem;
 }
@@ -103,7 +103,7 @@
   font: bold 1rem sans-serif;
 }
 
-.layout {
+.layout-cards {
   position: relative;
   width: 100%;
   max-width: 428px;
@@ -126,6 +126,10 @@
   gap: 1rem;
   padding: 1.5rem;
   overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .footer {
