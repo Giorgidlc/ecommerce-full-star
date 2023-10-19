@@ -1,7 +1,7 @@
-import db from  '../database/db.js';
+import db from  '../data/db.ts';
 import { DataTypes } from 'sequelize';
 
-const ProductModel = db.define('products', {
+const UserModel = db.define('products', {
     id:{type:DataTypes.STRING},
     user_name:{type:DataTypes.STRING},
     surname: {type: DataTypes.STRING},
@@ -16,4 +16,4 @@ const ProductModel = db.define('products', {
     timestamps: true
 })
 
-export default ProductModel;
+export default UserModel;

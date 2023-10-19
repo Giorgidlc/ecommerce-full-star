@@ -12,7 +12,7 @@ const ProductModel = db.define('products', {
 
     },
 },{
-    timestamps: true
+    timestamps: false
 })
 
 export default ProductModel;
