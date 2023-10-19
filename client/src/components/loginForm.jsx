@@ -54,7 +54,7 @@ const LoginForm = () => {
         </section>
         <button type="submit" id='login--Btn'>Log In</button>
       </form>
-      {error && <p>{error}</p>} {/* Display error message if there is an error */}
+      {error && <p>{error}</p>} {/* error message  */}
     </section>
   );
 }
