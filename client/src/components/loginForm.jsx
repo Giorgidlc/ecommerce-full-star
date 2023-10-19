@@ -1,70 +1,62 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-    };
+const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const users = [
+    { email: 'jorge1@ejemplo.com', password: '12345' },
+    { email: 'thuanny1@ejemplo.com', password: '54321' },
+  ];
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   }
 
-  handleEmailChange = (e) => {
-    this.setState({ email: e.target.value });
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   }
 
-  handlePasswordChange = (e) => {
-    this.setState({ password: e.target.value });
-  }
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     // Autenticación
-    const { email, password } = this.state;
-    const users =[
-        { email: 'jorge1@ejemplo.com', password: '12345'},
-        { email: 'thuanny1@ejemplo.com', password: '54321'},
-    ];
+    const user = users.find((user) => user.email === email && user.password === password);
 
-    const user =users.find((user) => user.mail === email && user.password === password);
-
-    if (user){
-        console.log('Successful Authentication');
-        this.setState({ error: null });
-    } 
-    else{ //Error
-        this.setState({ error: 'Invalid' });
+    if (user) {
+      console.log('Successful Authentication');
+      setError(null);
+      //useNavegate react router
+    } else {
+      setError('Invalid');
     }
   }
 
-  render() {
-    return (
-      <section className='loginForm'>
-        <h2 className='titleLoginForm'>Log in to Coockies & Dreams</h2>
-        <form onSubmit={this.handleSubmit}>
-          <section className='email-inputSection'>
-            <label id='email--input'>E-mail:</label>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.handleEmailChange}
-            />
-          </section>
-          <section className='password-inputSection'>
-            <label id='password--input'>Password:</label>
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
-            />
-          </section>
-          <button type="submit" id='login--Btn'>Log In</button>
-        </form>
-      </section>
-    );
-  }
+  return (
+    <section className='loginForm'>
+      <h2 className='titleLoginForm'>Log in to Cookies & Dreams</h2>
+      <form onSubmit={handleSubmit}>
+        <section className='email-inputSection'>
+          <label htmlFor='email--input'>E-mail:</label>
+          <input
+            type="text"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </section>
+        <section className='password-inputSection'>
+          <label htmlFor='password--input'>Password:</label>
+          <input
+            type="password"
+            value={password} 
+            onChange={handlePasswordChange}
+          />
+        </section>
+        <button type="submit" id='login--Btn'>Log In</button>
+      </form>
+      {error && <p>{error}</p>} {/* Display error message if there is an error */}
+    </section>
+  );
 }
 
 export default LoginForm;
-
-
