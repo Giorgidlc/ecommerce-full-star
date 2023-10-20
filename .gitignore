@@ -11,8 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-package.json
-package-lock.json
+**/package.json
+**/package-lock.json
 password.ts
 
 # Editor directories and files
