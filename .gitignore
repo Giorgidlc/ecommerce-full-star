@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 package.json
-package-log.json
+package-lock.json
+password.ts
 
 # Editor directories and files
 .vscode/*
