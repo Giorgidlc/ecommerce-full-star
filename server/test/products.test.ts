@@ -1,28 +1,13 @@
 import request from 'supertest';
-import app from '../src/index.ts';
+import {server,app} from '../src/index.ts';
+import ProductModel from '../src/models/productModel.ts';
+import { ProductsType, HttpProductResponseType  } from '../types/tests.types.ts';
 
-type HttpProductResponse<T> = {
-    status: number;
-    headers: Record<string, string>;
-    body:{
-        products: T[];
-    } ;
-  };
-  type Products ={
-    id: string;
-    user_name: string;
-    surname: string;
-    email: string;
-    user_password: string;
-    paying_method_id: string; 
-    register_date: string;
 
-  }
 describe("CRUD Products Test",() =>{
-
-    //-----------------------------------------------GET----------------------------------------------------------   
+  
        describe("GET /Products", () =>{
-           let response : HttpProductResponse<Products>;
+           let response : HttpProductResponseType<ProductsType>;
            beforeEach(async()=>{
                response = await request(app).get('/products').send()
            })
@@ -36,7 +21,8 @@ describe("CRUD Products Test",() =>{
                  
            })
        })
-       //-----------------------------------------------POST----------------------------------------------------------
+      
+
        describe('POST /products',() =>{ 
    
            const newProduct = {

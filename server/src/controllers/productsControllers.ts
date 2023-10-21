@@ -3,23 +3,30 @@ import ProductModel from "../models/productModel.ts";
 
 const getProducts = async (_req: Request, res: Response) =>{
     try {
+
         const products = await ProductModel.findAll();
-        res.json(products);
+        
+        if(!products){return res.status(404).json({message:'Products not found'})}
+        return res.status(200).json(products)
          
     } catch (error : unknown ) {
-        res.status(500).json({message:(error as Error).message})
+
+        return res.status(500).json({message:(error as Error).message})
     }
 
 }
 
-const getProduct = async (req: Request, res: Response) => {
+const getProduct = async (req: Request, res:Response ) => {
     try {
         const  productId = req.params.id;
-        const product = await ProductModel.findOne({ where: { id: productId } });
-        res.json(product);
+        const product = await ProductModel.findById(productId);
+        
+        if(!product){ return res.status(404).json({message:'Product not found'}) }
+        return res.status(200).json(product);
+        
         
     } catch (error : unknown ) {
-        res.status(500).json({message:(error as Error).message})
+        return res.status(500).json({message:(error as Error).message})
     }
 
 
@@ -28,20 +35,43 @@ const getProduct = async (req: Request, res: Response) => {
 const createProduct = async (req: Request, res: Response) => {
     try {
         
-        await ProductModel.create(req.body);
-        res.json({message:'The Product has been created succesfully'});
+       const newProduct = await ProductModel.create(req.body);
+       
+       if(!newProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
+       return  res.status(201).json({message:'The Product has been created succesfully'});
         
     } catch (error : unknown ) {
-        res.status(500).json({message:(error as Error).message})
+        return res.json({message:(error as Error).message})
     }
 }
 
-const updateProduct = async (req: Request, res: Response) => {
+// const updateProduct = async (req: Request, res: Response) => {
 
-}
+//     try {
+//         const  productId = req.params.id;
+//         const updatedProduct = await ProductModel.update(req.body, productId);
+        
+//         if(!updatedProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
+//          return res.status(200).json({message:'The Product has been created succesfully'});
+        
+//     } catch (error : unknown ) {
+//         return res.json({message:(error as Error).message})
+//     }
+// }
 
-const deleteProduct = async (req: Request, res: Response) =>{
+// const deleteProduct = async (req: Request, res: Response) =>{
+//     try {
+//         const  productId = req.params.id;
+//         const eliminatedProduct = await ProductModel.eliminate(productId);
 
-}
+//         if(!eliminatedProduct){return res.status(404).json({message:'Product Not Found'})}
+//         return res.json({message:'The Product has been eliminated succesfully'});
+        
+//     } catch (error : unknown ) {
+//          return res.status(500).json({message:(error as Error).message})
+//     }
+// }
 
-export {getProducts, getProduct, createProduct, updateProduct, deleteProduct};
+export {getProducts, getProduct, createProduct};
+
+// , updateProduct, deleteProduct
