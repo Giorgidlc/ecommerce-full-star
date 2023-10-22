@@ -33,7 +33,7 @@ const createProduct = async (req: Request, res: Response) => {
     try {
         
          let result = await ProductModel.create(req.body);
-         return response.json(result)
+         return res.json(result)
         // res.json({message:'The Product has been created succesfully'});
         
     } catch (error : unknown ) {

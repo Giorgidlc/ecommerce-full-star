@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import productRouter from './routes/productsRouter';
+import mediaRouter from './models/mediaRouter';
 import cors from 'cors';
+
 
 const app = express();
 const port = 5000;
@@ -12,6 +14,8 @@ app.get('/', (_req: Request, res: Response) => {
 });
 
 app.use('/products', productRouter);
+app.use('/media', mediaRouter);
 app.listen(port, () => console.log(`Running in http://localhost:${port}`));
+
 
 export default app;
