@@ -1,5 +1,5 @@
 
-type HttpProductResponse<T> = {
+type HttpProductResponse<T> = { 
     status: number;
     headers: Record<string, string>;
     body:{

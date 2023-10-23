@@ -45,33 +45,32 @@ const createProduct = async (req: Request, res: Response) => {
     }
 }
 
-// const updateProduct = async (req: Request, res: Response) => {
+const updateProduct = async (req: Request, res: Response) => {
 
-//     try {
-//         const  productId = req.params.id;
-//         const updatedProduct = await ProductModel.update(req.body, productId);
+    try {
+        const  productId = req.params.id;
+        const updatedProduct = await ProductModel.update(req.body, productId);
         
-//         if(!updatedProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
-//          return res.status(200).json({message:'The Product has been created succesfully'});
+        if(!updatedProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
+         return res.status(200).json({message:'The Product has been updated succesfully'});
         
-//     } catch (error : unknown ) {
-//         return res.json({message:(error as Error).message})
-//     }
-// }
+    } catch (error : unknown ) {
+        return res.json({message:(error as Error).message})
+    }
+}
 
-// const deleteProduct = async (req: Request, res: Response) =>{
-//     try {
-//         const  productId = req.params.id;
-//         const eliminatedProduct = await ProductModel.eliminate(productId);
+const deleteProduct = async (req: Request, res: Response) =>{
+    try {
+        const  productId = req.params.id;
+        const eliminatedProduct = await ProductModel.eliminate(productId);
 
-//         if(!eliminatedProduct){return res.status(404).json({message:'Product Not Found'})}
-//         return res.json({message:'The Product has been eliminated succesfully'});
+        if(!eliminatedProduct){return res.status(404).json({message:'Product Not Found'})}
+        return res.json({message:'The Product has been eliminated succesfully'});
         
-//     } catch (error : unknown ) {
-//          return res.status(500).json({message:(error as Error).message})
-//     }
-// }
+    } catch (error : unknown ) {
+         return res.status(500).json({message:(error as Error).message})
+    }
+}
 
-export {getProducts, getProduct, createProduct};
+export {getProducts, getProduct, createProduct, updateProduct,deleteProduct};
 
-// , updateProduct, deleteProduct

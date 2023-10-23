@@ -1,13 +1,16 @@
 import request from 'supertest';
 import {server,app} from '../src/index.ts';
 import ProductModel from '../src/models/productModel.ts';
-import { ProductsType, HttpProductResponseType  } from '../types/tests.types.ts';
+import { Product, HttpProductResponse } from '../src/types/ProductsTypes.ts';
+
 
 
 describe("CRUD Products Test",() =>{
+
+//-----------------------------------------------GET---------------------------------------------------------------------
   
        describe("GET /Products", () =>{
-           let response : HttpProductResponseType<ProductsType>;
+           let response : HttpProductResponse<Product>;
            beforeEach(async()=>{
                response = await request(app).get('/products').send()
            })
@@ -22,8 +25,9 @@ describe("CRUD Products Test",() =>{
            })
        })
       
-
-       describe('POST /products',() =>{ 
+//-----------------------------------------------POST-------------------------------------------------------------------
+       
+    describe('POST /products',() =>{ 
    
            const newProduct = {
                user_name: "test",
@@ -55,7 +59,7 @@ describe("CRUD Products Test",() =>{
            })
    
            afterAll(async () => {
-               await ProductModel.destroy({where:{title: 'test'}})
+               await ProductModel.eliminateByName({where:{title: 'test'}})//Hacer eliminateByName.
            }) 
    
        })
