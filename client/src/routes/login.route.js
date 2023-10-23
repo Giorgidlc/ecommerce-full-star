@@ -5,6 +5,4 @@ const loaderUser = async () => {
     return user
 }
 
-console.log(loaderUser())
-
 export default loaderUser
