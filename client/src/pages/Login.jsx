@@ -1,7 +1,7 @@
 import '../styles/css/login.css'
 import LoginForm from '../components/LoginForm.jsx'
 import SignUpForm from '../components/SignUpForm'
-import { useState } from 'react'
+import { useState } from 'react' 
 
 
 const Login = () => {
@@ -16,15 +16,15 @@ const Login = () => {
     if (form === 'login'){
 
     return( 
-        <section className='loginForm'>
+        <section className='loginForm--Page'>
             <LoginForm />
-            <p> You don´t have an account? <a onClick={showSignUp}>Register</a></p>
+            <p className='mensageRegister'> You don´t have an account? <a onClick={showSignUp}>Register</a></p>
         </section>
     )
 } 
     else {
         return(
-            <section className='signUpform'>
+            <section className='signUpform--Page'>
             <SignUpForm />
             <p> You already have an account? <a onClick={showLogin}>Log In</a></p>
         </section>

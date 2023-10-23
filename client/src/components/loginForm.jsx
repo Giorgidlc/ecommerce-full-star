@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import loaderUser from '../routes/login.route';
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const users = [
+  /* const users = [
     { email: 'jorge1@ejemplo.com', password: '12345' },
     { email: 'thuanny1@ejemplo.com', password: '54321' },
-  ];
+  ]; */
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -21,7 +23,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     // Autenticación
-    const user = users.find((user) => user.email === email && user.password === password);
+    const user = loaderUser.find((user) => user.email === email && user.password === password);
 
     if (user) {
       console.log('Successful Authentication');
@@ -37,23 +39,25 @@ const LoginForm = () => {
       <figure className="logoLogin">
         <img src="/src/assets/LOGO.svg" alt="Logo" className="logoEmbed" />
       </figure>
-      <h2 className='titleLoginForm'>Log in to Cookies & Dreams</h2>
-      <form onSubmit={handleSubmit}>
-        <section className='email-inputSection'>
-          <label htmlFor='email--input'>E-mail:</label>
-          <input
+      <form onSubmit={handleSubmit} className='formContainer'>
+        <h2 className='titleLoginForm'>Log in to <br/> Cookies & Dreams</h2>
+        <section className='inputSection'>
+          <label htmlFor='email'></label>
+          <input 
+            id='email'
             type="text"
+            placeholder='E-mail'
             value={email}
             onChange={handleEmailChange}
           />
-        </section>
-        <section className='password-inputSection'>
-          <label htmlFor='password--input'>Password:</label>
+          <label htmlFor='password'>
           <input
             type="password"
+            placeholder='Password'
             value={password} 
             onChange={handlePasswordChange}
           />
+          </label>
         </section>
         <button type="submit" id='login--Btn'>Log In</button>
       </form>
