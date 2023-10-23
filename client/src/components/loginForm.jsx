@@ -34,6 +34,9 @@ const LoginForm = () => {
 
   return (
     <section className='loginForm'>
+      <figure className="logoLogin">
+        <img src="/src/assets/LOGO.svg" alt="Logo" className="logoEmbed" />
+      </figure>
       <h2 className='titleLoginForm'>Log in to Cookies & Dreams</h2>
       <form onSubmit={handleSubmit}>
         <section className='email-inputSection'>

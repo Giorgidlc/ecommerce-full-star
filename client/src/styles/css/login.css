@@ -1,9 +1,18 @@
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+/* Error: semicolons aren't allowed in the indented syntax.
+ *   ,
+ * 2 |   display: grid;
+ *   |                ^
+ *   '
+ *   sass\_loginForm.sass 2:16  @use
+ *   sass\login.sass 1:1        root stylesheet */
 
-/*# sourceMappingURL=login.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: semicolons aren't allowed in the indented syntax.\a   \2577 \a 2 \2502    display: grid;\d\a   \2502                 ^\a   \2575 \a   sass\\_loginForm.sass 2:16  @use\a   sass\\login.sass 1:1        root stylesheet";
+}
