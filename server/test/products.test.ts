@@ -2,17 +2,26 @@ import request from 'supertest';
 import {server,app} from '../src/index.ts';
 import ProductModel from '../src/models/productModel.ts';
 import { Product, HttpProductResponse } from '../src/types/ProductsTypes.ts';
+import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
 
 
 
-describe("CRUD Products Test",() =>{
+
+describe("CRUD Products Test",async() =>{
+        
 
 //-----------------------------------------------GET---------------------------------------------------------------------
-  
-       describe("GET /Products", () =>{
-           let response : HttpProductResponse<Product>;
-           beforeEach(async()=>{
-               response = await request(app).get('/products').send()
+    let response : HttpProductResponse<Product>;
+    let connection =  await openConnectionDb();
+
+    describe("GET /Products", () =>{
+       
+        
+           
+        beforeEach(async() =>{
+           
+            response = await request(app).get('/products').send();
+                
            })
            test('Should return a response with status 200 and type json, when I send a Get request', async() => {
                
@@ -23,12 +32,17 @@ describe("CRUD Products Test",() =>{
                expect(response.body).toBeInstanceOf(Array);
                  
            })
+           afterAll(async()=> {
+            server.close();
+            closeConnectionDb(connection)
+                   
+            })
        })
       
 //-----------------------------------------------POST-------------------------------------------------------------------
        
     describe('POST /products',() =>{ 
-   
+    
            const newProduct = {
                user_name: "test",
                surname: "test",
@@ -59,14 +73,14 @@ describe("CRUD Products Test",() =>{
            })
    
            afterAll(async () => {
-               await ProductModel.eliminateByName({where:{title: 'test'}})//Hacer eliminateByName.
+               await ProductModel.eliminateByName('test');
            }) 
    
        })
-       afterAll(()=> {
-           server.close();
-           db.close();
-   
-       })
+    afterAll(async()=> {
+    server.close();
+    closeConnectionDb(connection)
+           
+    })
    
    })

@@ -1,13 +1,13 @@
 import { Request,Response } from "express";
 import ProductModel from "../models/productModel.ts";
 
-const getProducts = async (_req: Request, res: Response) =>{
+const getProducts = async (_req: Request, res: Response) => {
     try {
 
         const products = await ProductModel.findAll();
         
-        if(!products){return res.status(404).json({message:'Products not found'})}
-        return res.status(200).json(products)
+        if(!products){return res.status(404).json({message:'Products not found'});}
+        return res.status(200).json(products);
          
     } catch (error : unknown ) {
 
@@ -59,10 +59,10 @@ const updateProduct = async (req: Request, res: Response) => {
     }
 }
 
-const deleteProduct = async (req: Request, res: Response) =>{
+const deleteProductById = async (req: Request, res: Response) => {
     try {
         const  productId = req.params.id;
-        const eliminatedProduct = await ProductModel.eliminate(productId);
+        const eliminatedProduct = await ProductModel.eliminateById(productId);
 
         if(!eliminatedProduct){return res.status(404).json({message:'Product Not Found'})}
         return res.json({message:'The Product has been eliminated succesfully'});
@@ -72,5 +72,21 @@ const deleteProduct = async (req: Request, res: Response) =>{
     }
 }
 
-export {getProducts, getProduct, createProduct, updateProduct,deleteProduct};
 
+const deleteProductByName = async (req: Request, res: Response) => {
+    try {
+        const  productId = req.params.id;
+        const eliminatedProduct = await ProductModel.eliminateById(productId);
+
+        if(!eliminatedProduct){return res.status(404).json({message:'Product Not Found'})}
+        return res.json({message:'The Product has been eliminated succesfully'});
+        
+    } catch (error : unknown ) {
+         return res.status(500).json({message:(error as Error).message})
+    }
+}
+
+
+
+
+export {getProducts, getProduct, createProduct, updateProduct,deleteProductById,deleteProductByName};
