@@ -15,11 +15,10 @@ const Home = () => {
       <section className="video-background">
         <video autoPlay loop="infinit" muted src="/src/assets/Chocolate Chip Cookie.mp4" className="videoproduct"></video>
       </section>
-      <section className="header">
+      <header className="header">
         <Header product={ product } />
-      </section>
+      </header>
       <section className="detailsProducts">
-        
         <article className='detailsProducts__content'>
           <Logo />
           <DetailsProducts product={ product } />
