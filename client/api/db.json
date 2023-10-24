@@ -4,6 +4,7 @@
       "price": "2.99€",
       "description": "A classic cookie with rich chocolate chips.",
       "category": "COOKIES",
+      "video": "/src/assets/Chocolate Chip Cookie.mp4",
       "id": "1"
     },
     {

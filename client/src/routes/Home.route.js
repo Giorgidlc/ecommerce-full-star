@@ -1,7 +1,6 @@
-import { getProduct } from "../utils/productController";
+import { getProducts } from "../utils/productController";
 
-export async function loaderGetProduct() {
-  const product = await getProduct(1);
-  return product
+export async function loaderGetProducts() {
+  const products = await getProducts();
+  return { products }
 }
-
