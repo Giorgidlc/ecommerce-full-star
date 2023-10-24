@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"dashboard.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/_navbarDashboard.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;EACA;;;AAIJ;EACI;EACA;EACA;EACA;EACA;EACA;EACA;;;AAGJ;EACI","file":"dashboard.css"}
