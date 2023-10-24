@@ -1,0 +1,11 @@
+{
+    "articles": [
+        {
+            "title": "Chocolate Cake",
+            "description": "Worem ipsum dolor sit amet, consectetur adipiscing elit",
+            "quantity": 3,
+            "price": "29.90$",
+            "id": 1
+        }
+    ]
+}

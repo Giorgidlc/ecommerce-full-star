@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 
 const MainDashboard = () => {
+  
   return (
     <section className="categorySection">
       <h2>Category</h2>
