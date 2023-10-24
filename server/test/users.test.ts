@@ -1,26 +1,26 @@
 import request from 'supertest';
 import {server,app} from '../src/index.ts';
-import ProductModel from '../src/models/productModel.ts';
-import { Products, HttpProductResponse } from '../src/types/productsTypes.ts';
+import UserModel from '../src/models/userModel.ts';
+import { Users, HttpUserResponse } from '../src/types/usersTypes.ts';
 import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
 
 
 
 
-describe("CRUD Products Test",async() =>{
+describe("CRUD Users Test",async() =>{
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
-    let response : HttpProductResponse<Products>;
+    let response : HttpUserResponse<Users>;
     let connection =  await openConnectionDb();
 
-    describe("GET /Products", () =>{
+    describe("GET /Users", () =>{
     
         
         
         beforeEach(async() =>{
         
-            response = await request(app).get('/products').send();
+            response = await request(app).get('/users').send();
         
         })
         test('Should return a response with status 200 and type json, when I send a Get request', async() => {
@@ -28,7 +28,7 @@ describe("CRUD Products Test",async() =>{
             expect(response.status).toBe(200);
             expect(response.headers['content-type']).toContain('json');
         })
-        test("Should return all products",async() => {
+        test("Should return all users",async() => {
             expect(response.body).toBeInstanceOf(Array);
         })
         afterAll(async()=> {
@@ -40,39 +40,40 @@ describe("CRUD Products Test",async() =>{
     
 //-----------------------------------------------POST-------------------------------------------------------------------
     
-    describe('POST /products',() =>{ 
+    describe('POST /users',() =>{ 
     
-        const newProduct = {
+        const newUser = {
             user_name: "test",
             surname: "test",
             email: "test",
             user_password: "test",
             paying_method_id: "test",
+            register_date: "test"
         }
 
-        const wrongProduct = {
+        const wrongUser = {
             wrong_field:'test'
         }
 
         test('Should return a response with status 200 and type json', async () =>{
-            const response = await request(app).post('/products').send(newProduct)
+            const response = await request(app).post('/users').send(newUser)
             expect(response.status).toBe(200)
             expect(response.headers['content-type']).toContain('json')
         });
 
-        test('Should return a message product created successfully', async () =>{
-            const response = await request(app).post('/products').send(newProduct)
-            expect(response.body.message).toContain("The product has been created successfully!")//¿Se podría eliminar este test y meter esta línea en el de arriba?
+        test('Should return a message user created successfully', async () =>{
+            const response = await request(app).post('/users').send(newUser)
+            expect(response.body.message).toContain("The user has been created successfully!")//¿Se podría eliminar este test y meter esta línea en el de arriba?
         })
 
-        test('Should return a message insertion error If post wrong product', async () =>{
-            const response = await request(app).post('/products').send(wrongProduct)
+        test('Should return a message insertion error If post wrong user', async () =>{
+            const response = await request(app).post('/users').send(wrongUser)
             expect(response.status).toBe(500);
-            expect(response.body.message).toContain("Field 'title' doesn't have a default value")
+            expect(response.body.message).toContain("Field 'title' doesn't have a default value")// ¿title?
         })
 
         afterAll(async () => {
-            await ProductModel.eliminateByName('test');
+            await UserModel.eliminateByName('test');
         }) 
 
     })

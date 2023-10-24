@@ -8,7 +8,7 @@ const getProducts = async (_req: Request, res: Response) => {
         
         if(!products){return res.status(404).json({message:'Products not found'});}
         return res.status(200).json(products);
-         
+        
     } catch (error : unknown ) {
 
         return res.status(500).json({message:(error as Error).message})
@@ -35,10 +35,10 @@ const getProduct = async (req: Request, res:Response ) => {
 const createProduct = async (req: Request, res: Response) => {
     try {
         
-       const newProduct = await ProductModel.create(req.body);
-       
-       if(!newProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
-       return  res.status(201).json({message:'The Product has been created succesfully'});
+        const newProduct = await ProductModel.create(req.body);
+        
+        if(!newProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
+        return res.status(201).json({message:'The Product has been created succesfully'});
         
     } catch (error : unknown ) {
         return res.json({message:(error as Error).message})
@@ -52,7 +52,7 @@ const updateProduct = async (req: Request, res: Response) => {
         const updatedProduct = await ProductModel.update(req.body, productId);
         
         if(!updatedProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
-         return res.status(200).json({message:'The Product has been updated succesfully'});
+        return res.status(200).json({message:'The Product has been updated succesfully'});
         
     } catch (error : unknown ) {
         return res.json({message:(error as Error).message})
@@ -68,7 +68,7 @@ const deleteProductById = async (req: Request, res: Response) => {
         return res.json({message:'The Product has been eliminated succesfully'});
         
     } catch (error : unknown ) {
-         return res.status(500).json({message:(error as Error).message})
+        return res.status(500).json({message:(error as Error).message})
     }
 }
 
@@ -82,11 +82,11 @@ const deleteProductByName = async (req: Request, res: Response) => {
         return res.json({message:'The Product has been eliminated succesfully'});
         
     } catch (error : unknown ) {
-         return res.status(500).json({message:(error as Error).message})
+        return res.status(500).json({message:(error as Error).message})
     }
 }
 
 
 
 
-export {getProducts, getProduct, createProduct, updateProduct,deleteProductById,deleteProductByName};
+export {getProducts, getProduct, createProduct, updateProduct, deleteProductById, deleteProductByName};

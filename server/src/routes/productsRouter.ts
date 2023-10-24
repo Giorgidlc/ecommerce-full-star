@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { getProducts,getProduct,createProduct, updateProduct, deleteProductById} from '../controllers/productControllers';
+import { getProducts, getProduct, createProduct, updateProduct, deleteProductById} from '../controllers/productControllers.ts';
 
 // , createProduct, updateProduct, deleteProduct
 
