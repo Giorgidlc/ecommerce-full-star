@@ -1,10 +1,8 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Dashboard from '../src/pages/Dashboard'
+import { RouterProvider } from 'react-router-dom'
+import router from './routes/router'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Dashboard />
-  </React.StrictMode>,
+  <RouterProvider router={router} />
 )
