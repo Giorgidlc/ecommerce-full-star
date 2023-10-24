@@ -1,5 +1,5 @@
 import {openConnectionDb, closeConnectionDb} from "../config/db.ts";
-import { Product } from "../types/ProductsTypes.ts";
+import { Product } from "../types/productsTypes.ts";
 
 
 
@@ -8,7 +8,7 @@ const ProductModel = {
     async findAll(){
 
         let connection = await openConnectionDb();
-        const [products, metadata] = await connection.query('SELECT * , BIN_TO_UUID(product_id) product_id FROM products')
+        const [products, metadata] = await connection.query('SELECT * , BIN_TO_UUID(product_id) product_id FROM Products')
         await closeConnectionDb(connection);//Cerrar la conexión en cada petición, podría ser ineficiente. Investigar como y donde hacerlo.
         return products;
         

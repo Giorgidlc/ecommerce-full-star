@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
 import ProductModel from "../models/productModel.ts";
+import { Product } from "../types/productsTypes.ts";
 
 const getProducts = async (_req: Request, res: Response) => {
     try {
@@ -37,8 +38,8 @@ const createProduct = async (req: Request, res: Response) => {
         
        const newProduct = await ProductModel.create(req.body);
        
-       if(!newProduct){return res.status(400).json({message:'Need to Introduce Body Data'})}
-       return  res.status(201).json({message:'The Product has been created succesfully'});
+       if(!newProduct){return res.status(400).json({message:'Missing Data'})}
+       return  res.status(201).json({message:'The Product has been created successfully!'});
         
     } catch (error : unknown ) {
         return res.json({message:(error as Error).message})

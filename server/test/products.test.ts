@@ -1,18 +1,18 @@
 import request from 'supertest';
-import {server,app} from '../src/index.ts';
+import {server,app} from '../src/index.ts'
 import ProductModel from '../src/models/productModel.ts';
-import { Product, HttpProductResponse } from '../src/types/ProductsTypes.ts';
+import { Product, HttpProductResponse } from '../src/types/productsTypes.ts';
 import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
+import { Connection } from 'mysql2/typings/mysql/lib/Connection';
 
 
 
 
-describe("CRUD Products Test",async() =>{
-        
-
-//-----------------------------------------------GET---------------------------------------------------------------------
+describe("CRUD Products Test",() =>{
+            
+    let connection : Promise<any>;
     let response : HttpProductResponse<Product>;
-    let connection =  await openConnectionDb();
+   
 
     describe("GET /Products", () =>{
        
@@ -20,55 +20,53 @@ describe("CRUD Products Test",async() =>{
            
         beforeEach(async() =>{
            
+            connection =  openConnectionDb();
             response = await request(app).get('/products').send();
                 
-           })
-           test('Should return a response with status 200 and type json, when I send a Get request', async() => {
+        })
+        test('Should return a response with status 200 and type json, when I send a Get request', async() => {
                
-               expect(response.status).toBe(200);
-               expect(response.headers['content-type']).toContain('json');
-           })
-           test("Should return all products",async() => {
-               expect(response.body).toBeInstanceOf(Array);
+            expect(response.status).toBe(200);
+            expect(response.headers['content-type']).toContain('json');
+        })
+        test("Should return all products",async() => {
+            
+            expect(response.body).toBeInstanceOf(Array);
                  
-           })
-           afterAll(async()=> {
-            server.close();
-            closeConnectionDb(connection)
-                   
-            })
-       })
+        })
+          
+               
+    })
       
-//-----------------------------------------------POST-------------------------------------------------------------------
+
        
-    describe('POST /products',() =>{ 
+        describe('POST /products',() =>{ 
     
            const newProduct = {
-               user_name: "test",
-               surname: "test",
-               email: "test",
-               user_password: "test",
-               paying_method_id: "test",
+               product_name: "test",
+               product_description: "test",
+               price: 2,
+               stock: 1
            }
    
            const wrongProduct = {
-               wrong_field:'test'
+               wrong_field: 2
            }
    
-           test('Should return a response with status 200 and type json', async () =>{
+           test('Should return a response with status 200 and type json when a correct product is Added', async () =>{
                const response = await request(app).post('/products').send(newProduct)
-               expect(response.status).toBe(200)
+               expect(response.status).toBe(201)
                expect(response.headers['content-type']).toContain('json')
            });
    
            test('Should return a message product created successfully', async () =>{
                const response = await request(app).post('/products').send(newProduct)
-               expect(response.body.message).toContain("The product has been created successfully!")//Se podría eliminar este test y meter esta lnea en el de arriba?
+               expect(response.body.message).toContain("The Product has been created successfully!")
            })
    
            test('Should return a message insertion error If post wrong product ', async () =>{
                const response = await request(app).post('/products').send(wrongProduct)
-               expect(response.status).toBe(500);
+               expect(response.status).toBe(400);
                expect(response.body.message).toContain("Field 'title' doesn't have a default value")
            })
    
@@ -77,9 +75,10 @@ describe("CRUD Products Test",async() =>{
            }) 
    
        })
-    afterAll(async()=> {
-    server.close();
-    closeConnectionDb(connection)
+        afterAll(async()=> {
+        server.close();
+        const realConnection = await connection; 
+        closeConnectionDb(realConnection);
            
     })
    

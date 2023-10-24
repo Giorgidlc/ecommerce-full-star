@@ -1,12 +1,12 @@
 import mysql,{Connection} from 'mysql2/promise';
 import module from './password';
-import DbConfig from '../interfaces/configDB.interfaces';
+import DbConfig from '../interfaces/configDB.interfaces.ts';
 
 
 const DBCONFIG: DbConfig = {
 
     host: 'localhost',
-    database: 'dreams_and_cookies',
+    database: module.database,
     user: 'root',
     password: module.password,
     port: 3306
@@ -16,7 +16,6 @@ async function openConnectionDb() {
     
     try {
         let connection = await mysql.createConnection(DBCONFIG);
-        console.log('Connected Successfully to DB!!!');
         return connection;
     } catch (error:unknown) {
         console.log('Error opening the database connection: ' +{message:(error as Error).message} );
