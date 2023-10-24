@@ -32,9 +32,4 @@ async function closeConnectionDb(connection: mysql.Connection) {
     }
 }
 
-
-
-
-
-
 export {openConnectionDb, closeConnectionDb};

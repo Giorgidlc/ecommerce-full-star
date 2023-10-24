@@ -1,6 +1,7 @@
 import express,{Request, Response} from 'express';
 import productRouter from './routes/productsRouter.ts';
 import userRouter from './routes/userRouter.ts';
+import shoppingCartRouter from './routes/shoppingCartRouter.ts';
 import cors from 'cors';
 
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use('/products', productRouter);
 app.use('/users', userRouter);
+app.use('/shoppingCart', shoppingCartRouter);
 
 
 app.get('/', (_req, res) => {
