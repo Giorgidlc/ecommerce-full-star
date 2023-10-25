@@ -4,6 +4,7 @@ import userRouter from './routes/userRouter.ts';
 import shoppingCartRouter from './routes/shoppingCartRouter.ts';
 import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter.ts';
 import roleRouter from './routes/roleRouter.ts';
+import userRolesRouter from './routes/userRolesRouter';
 import cors from 'cors';
 
 
