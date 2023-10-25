@@ -1,25 +1,19 @@
 import request from 'supertest';
 import {server,app} from '../src/index.ts';
 import UserModel from '../src/models/userModel.ts';
-import { Users, HttpUserResponse } from '../src/types/usersTypes.ts';
+import { Users, HttpUserResponse } from '../src/types/userTypes.ts';
 import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
 
-
-
-
-describe("CRUD Users Test",async() =>{
+describe("CRUD Users Test",async() =>{ 
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
     let response : HttpUserResponse<Users>;
     let connection =  await openConnectionDb();
 
-    describe("GET /Users", () =>{
+    describe("GET /Users", () => {
     
-        
-        
         beforeEach(async() =>{
-        
             response = await request(app).get('/users').send();
         
         })
@@ -80,7 +74,5 @@ describe("CRUD Users Test",async() =>{
     afterAll(async()=> {
     server.close();
     closeConnectionDb(connection)
-    
     })
-
 })

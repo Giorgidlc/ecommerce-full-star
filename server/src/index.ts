@@ -2,6 +2,8 @@ import express,{Request, Response} from 'express';
 import productRouter from './routes/productsRouter.ts';
 import userRouter from './routes/userRouter.ts';
 import shoppingCartRouter from './routes/shoppingCartRouter.ts';
+import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter.ts';
+import roles from '.routes/roleRoutes.ts';
 import cors from 'cors';
 
 
