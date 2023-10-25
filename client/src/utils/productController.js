@@ -5,7 +5,7 @@ export async function getProducts() {
   return products;
 }
 
-export async function getProduct(id) {
-  const product = await (await fetch(API_URL + id)).json();
-  return product;
+export async function getProduct({params}) {
+  const product = await (await fetch(API_URL + params.productId)).json();
+  return { product };
 } 

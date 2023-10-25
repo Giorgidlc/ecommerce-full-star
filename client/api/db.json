@@ -1,163 +1,164 @@
 { "products": [
-    {
-      "title": "Chocolate Chip Cookie",
-      "price": "2.99€",
-      "description": "A classic cookie with rich chocolate chips.",
-      "category": "COOKIES",
-      "video": "/src/assets/Chocolate Chip Cookie.mp4",
-      "id": "1"
-    },
-    {
-      "title": "Vanilla Cupcake",
-      "price": "3.49€",
-      "description": "A fluffy cupcake with smooth vanilla frosting.",
-      "category": 4,
-      "id": "2"
-    },
-    {
-      "title": "Red Velvet Cake",
-      "price": "19.99€",
-      "description": "A moist and decadent cake with cream cheese frosting.",
-      "category": 2,
-      "id": "3"
-    },
-    {
-      "title": "Blueberry Muffin",
-      "price": "2.49€",
-      "description": "A tender muffin bursting with juicy blueberries.",
-      "category": 3,
-      "id": "4"
-    },
-    {
-      "title": "Oatmeal Raisin Cookie",
-      "price": "2.99€",
-      "description": "A chewy cookie with wholesome oats and plump raisins.",
-      "category": 1,
-      "id": "5"
-    },
-    {
-      "title": "Strawberry Shortcake",
-      "price": "4.99€",
-      "description": "Layers of fluffy cake, fresh strawberries, and whipped cream.",
-      "category": 2,
-      "id": "6"
-    },
-    {
-      "title": "Banana Nut Muffin",
-      "price": "2.49€",
-      "description": "A moist muffin filled with ripe bananas and crunchy walnuts.",
-      "category": 3,
-      "id": "7"
-    },
-    {
-      "title": "Peanut Butter Cookie",
-      "price": "2.99€",
-      "description": "A rich and nutty cookie made with creamy peanut butter.",
-      "category": 1,
-      "id": "8"
-    },
-    {
-      "title": "Carrot Cake",
-      "price": "21.99€",
-      "description": "A spiced cake with grated carrots and cream cheese frosting.",
-      "category": 2,
-      "id": "9"
-    },
-    {
-      "title": "Cranberry Orange Muffin",
-      "price": "2.49€",
-      "description": "A tangy muffin with tart cranberries and fresh orange zest.",
-      "category": 3,
-      "id": "10"
-    },
-    {
-      "title": "Sugar Cookie",
-      "price": "2.99€",
-      "description": "A sweet and buttery cookie with a hint of vanilla.",
-      "category": 1,
-      "id": "11"
-    },
-    {
-      "title": "Lemon Cupcake",
-      "price": "3.49€",
-      "description": "A zesty cupcake with a tangy lemon glaze.",
-      "category": 4,
-      "id": "12"
-    },
-    {
-      "title": "Chocolate Cake",
-      "price": "19.99€",
-      "description": "A rich and indulgent cake with layers of chocolate ganache.",
-      "category": 2,
-      "id": "13"
-    },
-    {
-      "title": "Double Chocolate Muffin",
-      "price": "2.49€",
-      "description": "A chocolate lover's dream, packed with double the chocolate.",
-      "category": 3,
-      "id": "14"
-    },
-    {
-      "title": "Snickerdoodle Cookie",
-      "price": "2.99€",
-      "description": "A soft and chewy cookie coated in cinnamon and sugar.",
-      "category": 1,
-      "id": "15"
-    },
-    {
-      "title": "Raspberry Cupcake",
-      "price": "3.49€",
-      "description": "A delicate cupcake filled with sweet raspberry jam.",
-      "category": 4,
-      "id": "16"
-    },
-    {
-      "title": "Marble Cake",
-      "price": "21.99€",
-      "description": "A swirl of vanilla and chocolate cake, perfect for any occasion.",
-      "category": 2,
-      "id": "17"
-    },
-    {
-      "title": "Apple Cinnamon Muffin",
-      "price": "2.49€",
-      "description": "A comforting muffin with chunks of apple and a cinnamon streusel topping.",
-      "category": 3,
-      "id": "18"
-    },
-    {
-      "title": "Oreo Cookie",
-      "price": "2.99€",
-      "description": "A crunchy cookie filled with creamy Oreo filling.",
-      "category": 1,
-      "id": "19"
-    },
-    {
-      "title": "Coconut Cupcake",
-      "price": "3.49€",
-      "description": "A tropical cupcake topped with fluffy coconut frosting.",
-      "category": 4,
-      "id": "20"
-    }
+  {
+    "id": "1",
+    "title": "Chocolate Chip Cookie",
+    "price": "2.99€",
+    "description": "A classic cookie with rich chocolate chips.",
+    "categoryId": 1,
+    "video": "/src/assets/Chocolate Chip Cookie.mp4"
+    
+  },
+  {
+    "id": "2",
+    "title": "Vanilla Cupcake",
+    "price": "3.49€",
+    "description": "A fluffy cupcake with smooth vanilla frosting.",
+    "categoryId": 4
+  },
+  {
+    "id": "3",
+    "title": "Red Velvet Cake",
+    "price": "19.99€",
+    "description": "A moist and decadent cake with cream cheese frosting.",
+    "categoryId": 2
+  },
+  {
+    "id": "4",
+    "title": "Blueberry Muffin",
+    "price": "2.49€",
+    "description": "A tender muffin bursting with juicy blueberries.",
+    "categoryId": 3
+  },
+  {
+    "id": "5",
+    "title": "Oatmeal Raisin Cookie",
+    "price": "2.99€",
+    "description": "A chewy cookie with wholesome oats and plump raisins.",
+    "categoryId": 1
+  },
+  {
+    "id": "6",
+    "title": "Strawberry Shortcake",
+    "price": "4.99€",
+    "description": "Layers of fluffy cake, fresh strawberries, and whipped cream.",
+    "categoryId": 2
+  },
+  {
+    "id": "7",
+    "title": "Banana Nut Muffin",
+    "price": "2.49€",
+    "description": "A moist muffin filled with ripe bananas and crunchy walnuts.",
+    "categoryId": 3
+  },
+  {
+    "id": "8",
+    "title": "Peanut Butter Cookie",
+    "price": "2.99€",
+    "description": "A rich and nutty cookie made with creamy peanut butter.",
+    "categoryId": 1
+  },
+  {
+    "id": "9",
+    "title": "Carrot Cake",
+    "price": "21.99€",
+    "description": "A spiced cake with grated carrots and cream cheese frosting.",
+    "categoryId": 2
+  },
+  {
+    "id": "10",
+    "title": "Cranberry Orange Muffin",
+    "price": "2.49€",
+    "description": "A tangy muffin with tart cranberries and fresh orange zest.",
+    "categoryId": 3
+  },
+  {
+    "id": "11",
+    "title": "Sugar Cookie",
+    "price": "2.99€",
+    "description": "A sweet and buttery cookie with a hint of vanilla.",
+    "categoryId": 1
+  },
+  {
+    "id": "12",
+    "title": "Lemon Cupcake",
+    "price": "3.49€",
+    "description": "A zesty cupcake with a tangy lemon glaze.",
+    "categoryId": 4
+  },
+  {
+    "id": "13",
+    "title": "Chocolate Cake",
+    "price": "19.99€",
+    "description": "A rich and indulgent cake with layers of chocolate ganache.",
+    "categoryId": 2
+  },
+  {
+    "id": "14",
+    "title": "Double Chocolate Muffin",
+    "price": "2.49€",
+    "description": "A chocolate lover's dream, packed with double the chocolate.",
+    "categoryId": 3
+  },
+  {
+    "id": "15",
+    "title": "Snickerdoodle Cookie",
+    "price": "2.99€",
+    "description": "A soft and chewy cookie coated in cinnamon and sugar.",
+    "categoryId": 1
+  },
+  {
+    "id": "16",
+    "title": "Raspberry Cupcake",
+    "price": "3.49€",
+    "description": "A delicate cupcake filled with sweet raspberry jam.",
+    "categoryId": 4
+  },
+  {
+    "id": "17",
+    "title": "Marble Cake",
+    "price": "21.99€",
+    "description": "A swirl of vanilla and chocolate cake, perfect for any occasion.",
+    "categoryId": 2
+  },
+  {
+    "id": "18",
+    "title": "Apple Cinnamon Muffin",
+    "price": "2.49€",
+    "description": "A comforting muffin with chunks of apple and a cinnamon streusel topping.",
+    "categoryId": 3
+  },
+  {
+    "id": "19",
+    "title": "Oreo Cookie",
+    "price": "2.99€",
+    "description": "A crunchy cookie filled with creamy Oreo filling.",
+    "categoryId": 1
+  },
+  {
+    "id": "20",
+    "title": "Coconut Cupcake",
+    "price": "3.49€",
+    "description": "A tropical cupcake topped with fluffy coconut frosting.",
+    "categoryId": 4
+  }
 ], 
 
-"category":[
-  {
-    "id": 1,
-    "name": "Cookies"
-  }, 
-  {
-    "id": 2,
-    "name": "Cakes"
-  },
-  {
-    "id": 3,
-    "name": "Muffins"
-  },
-  {
-    "id": 4,
-    "name": "Cupcakes"
-  }
+"categories":[
+{
+  "id": 1,
+  "name": "Cookies"
+}, 
+{
+  "id": 2,
+  "name": "Cakes"
+},
+{
+  "id": 3,
+  "name": "Muffins"
+},
+{
+  "id": 4,
+  "name": "Cupcakes"
+}
 ]
 }

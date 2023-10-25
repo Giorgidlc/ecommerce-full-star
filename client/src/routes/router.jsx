@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { loaderGetProducts as rootLoader } from './Home.route.js'
+import { loaderGetProducts } from './Home.route.js'
 import ErrorPage from '../pages/ErrorPage.jsx'
 import Home from '../pages/Home.jsx'
-import DetailsProducts from '../components/DetailsProducts.jsx'
+import DetailsProducts from '../components/ProductDetails.jsx'
 import ProductsCards from '../pages/ProductsCards.jsx'
 
 const router = createBrowserRouter([
@@ -10,7 +10,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
     children: [
       
       {
@@ -21,9 +20,9 @@ const router = createBrowserRouter([
     
   },
   {
-    path: "products",
+    path: "/products",
     element: <ProductsCards />,
-    loader: rootLoader,
+    loader: loaderGetProducts,
   },
  
 ])

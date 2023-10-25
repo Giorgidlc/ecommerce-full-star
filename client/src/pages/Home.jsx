@@ -1,6 +1,5 @@
 import '../styles/css/home.css'
-import { /* useLoaderData, */ Outlet }  from 'react-router-dom'
-//import DetailsProducts from "../components/DetailsProducts.jsx"
+import { Outlet }  from 'react-router-dom'
 import NavButtons from '../components/NavButtons.jsx'
 import { Footer } from '../components/Footer.jsx'
 import Header from '../components/Header'
