@@ -3,7 +3,7 @@ import productRouter from './routes/productsRouter.ts';
 import userRouter from './routes/userRouter.ts';
 import shoppingCartRouter from './routes/shoppingCartRouter.ts';
 import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter.ts';
-import roles from '.routes/roleRoutes.ts';
+import roleRouter from './routes/roleRouter.ts';
 import cors from 'cors';
 
 
