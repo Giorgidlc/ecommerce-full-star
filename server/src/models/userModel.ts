@@ -24,7 +24,7 @@ const UserModel = {
 
         let connection = await openConnectionDb();
         let {user_name, surname, email, user_password, paying_method_id, register_date} = user;
-        const [newUser, metadata] = await connection.query("INSERT INTO Users (user_name, surname, email, user_password, paying_method_id, register_date) VALUES (?, ?, ?, ?, UUID_TO_BIN(?), ?", [user_name, surname, email, user_password, paying_method_id, register_date]);
+        const [newUser, metadata] = await connection.query("INSERT INTO Users (user_name, surname, email, user_password, paying_method_id, register_date) VALUES (?, ?, ?, ?, UUID_TO_BIN(?), ?)", [user_name, surname, email, user_password, paying_method_id, register_date]);
         await closeConnectionDb(connection);
         return newUser;
 
@@ -33,7 +33,7 @@ const UserModel = {
     
         let connection = await openConnectionDb();
         let {user_name, surname, email, user_password, paying_method_id, register_date} = user;
-        const [updatedUser, metaData] = await connection.query('UPDATE Users SET user_name = ?, surname = ?, email = ?, user_password = ?, paying_method_id = ?, register_date = ? WHERE user_id = UUID_TO_BIN(?)',[user_name, surname, email, user_password, paying_method_id, register_date])
+        const [updatedUser, metaData] = await connection.query('UPDATE Users SET user_name = ?, surname = ?, email = ?, user_password = ?, paying_method_id = ?, register_date = ? WHERE user_id = UUID_TO_BIN(?)',[user_name, surname, email, user_password, paying_method_id, register_date, id])
         await closeConnectionDb(connection);
         return updatedUser;
 

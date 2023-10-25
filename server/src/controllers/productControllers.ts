@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
 import ProductModel from "../models/productModel.ts";
+import { ProductType } from "../types/productsTypes.ts";
 
 const getProducts = async (_req: Request, res: Response) => {
     try {
@@ -12,6 +13,8 @@ const getProducts = async (_req: Request, res: Response) => {
     } catch (error : unknown ) {
 
         return res.status(500).json({message:(error as Error).message})
+    }finally{
+
     }
 
 }
@@ -85,8 +88,22 @@ const deleteProductByName = async (req: Request, res: Response) => {
         return res.status(500).json({message:(error as Error).message})
     }
 }
+const addForeignKey = async (req:Request, res: Response) => {
+    try {
+        const  productId = req.params.id;
+        const productType: string = req.params.productType;
+        console.log(productType);
+        const productWithAddedForeignKey =  await ProductModel.addProductType(productId,productType);
+
+        if(!productWithAddedForeignKey){return res.status(404).json({message:'Product Not Found'})}
+        return res.json({message:`The Foreign Key ${productType} was successfully added to the Product`});
+
+    } catch (error : unknown) {
+        return res.status(500).json({message:(error as Error).message})
+    }
+}
 
 
 
 
-export {getProducts, getProduct, createProduct, updateProduct, deleteProductById, deleteProductByName};
+export {getProducts, getProduct, createProduct, updateProduct, deleteProductById, deleteProductByName,addForeignKey};

@@ -16,4 +16,6 @@ type Products = {
     product_discount_id: any;
 
 }
+
 export {Products, HttpProductResponse};
+
