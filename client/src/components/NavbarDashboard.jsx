@@ -12,7 +12,7 @@ export const NavbarDashboard = () => {
       </section>
       <h2 className="titleDashboard">Cookies & Dreams Dashboard</h2>
       <section className="admin-navbar-logo">
-        <img src="../src/assets/Logo.svg" alt="Logo" />
+        <img src="../src/assets/icon-logo.svg" alt="Logo" />
       </section>
     </nav>
   );
