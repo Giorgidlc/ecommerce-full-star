@@ -43,11 +43,6 @@ const ProductModel = db.define('products', {
     timestamps: false
 });
 
-// export function createProduct(productData: any) {
-//     return ProductModel.create({
-//         ...productData,
-//         product_id: db.fn('UUID_TO_BIN', productData.product_id)
-//     });
-// }
+
 
 export default ProductModel;

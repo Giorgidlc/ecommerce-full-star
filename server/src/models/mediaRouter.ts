@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import upload from '../multerConfig.ts';
+import upload from '../midlewares/multerConfig.ts';
 import uploadMedia from '../controllers/mediaControllers.ts';
 
 const mediaRouter = Router();
