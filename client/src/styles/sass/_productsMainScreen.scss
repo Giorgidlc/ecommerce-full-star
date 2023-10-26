@@ -1,0 +1,19 @@
+.container-mainScreen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 760px;
+  justify-content: space-between;
+  background-color: blue;
+  border-bottom: solid orange 3px;
+
+}
+
+.wrapper-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1.5rem 1.5rem 3rem;
+
+
+}

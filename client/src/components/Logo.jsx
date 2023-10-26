@@ -1,9 +1,9 @@
-
+const logo = 'src/assets/logo-dreams&cookies.svg'
 
 const Logo = () => {
   return (
     <figure className="logo">
-      <img src="src/assets/logo.svg" alt="" className="logo__embed" />
+      <img src={logo} alt="" className="logo__embed" />
     </figure>
   )
 }
