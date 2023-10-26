@@ -1,6 +1,7 @@
 import '../styles/css/dashboard.css'
 import { NavbarDashboard } from "../components/NavbarDashboard";
 import MainDashboard from "../components/MainDashboard"
+import CardsDashboard from '../components/CardsDashboard';
 
 const Dashboard = () => {
     return(
@@ -10,6 +11,9 @@ const Dashboard = () => {
             </section>
             <section>
                 <MainDashboard />
+            </section>
+            <section>
+                <CardsDashboard />
             </section>
 
         </>
