@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const SignUpForm = () => {
-  const [name, setName] = useState("");
+  const [user_name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user_password, setPassword] = useState("");
   const [users, setUsers] = useState([]); // Aramazenar los nuevos users
 
   const handleNameChange = (e) => {
@@ -22,7 +22,7 @@ const SignUpForm = () => {
     e.preventDefault();
 
     // Crie um novo objeto de usuário com as informações fornecidas
-    const newUser = { name, email, password };
+    const newUser = { user_name, email, user_password };
 
     // Adicione o novo usuário à lista de usuários
     setUsers([...users, newUser]);
@@ -41,7 +41,7 @@ const SignUpForm = () => {
           <label htmlFor='name-input'>Name:</label>
           <input
             type="text"
-            value={name}
+            value={user_name}
             onChange={handleNameChange}
           />
         </section>
@@ -57,7 +57,7 @@ const SignUpForm = () => {
           <label htmlFor='password-input'>Password:</label>
           <input
             type="password"
-            value={password}
+            value={user_password}
             onChange={handlePasswordChange}
           />
         </section>
