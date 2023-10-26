@@ -1,28 +1,22 @@
 import '../styles/css/home.css'
-import { Outlet }  from 'react-router-dom'
-import NavButtons from '../components/NavButtons.jsx'
+import { useLoaderData, /* Outlet */ } from 'react-router-dom'
 import { Footer } from '../components/Footer.jsx'
-import Header from '../components/Header'
-import Logo from '../components/Logo'
+import ProductsMainScreen from '../components/ProductsMainScreen';
 
 
 const Home = () => {
+  const data = useLoaderData();
+  console.log(data);
   
   return (
     <main className="layout">
-      <section className="video-background">
-        <video className="videoproduct" autoPlay loop="infinit" muted key={"product.video"} src={"product.video "|| null} ></video>
-      </section>
-      <header className="header">
-        <Header />
-      </header>
-      <section className="detailsProducts">
-        <article className='detailsProducts__content'>
-          <Logo />
-          <Outlet />
-          <NavButtons />
-        </article>
-      </section> 
+      {data.products.length > 0 ? (
+          data.products.map((product) => (
+            <ProductsMainScreen key={product.id} product={product} />
+          )) 
+        ) : (
+          <h2>Card not found</h2>
+        )} 
       <section className="footer">
           <Footer />
       </section>

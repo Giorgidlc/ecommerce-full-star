@@ -1,33 +1,34 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { loaderGetProducts } from './Home.route.js'
 import ErrorPage from '../pages/ErrorPage.jsx'
 import Home from '../pages/Home.jsx'
-import Login from '../pages/Login.jsx'
-import DetailsProducts from '../components/ProductDetails.jsx'
 import ProductsCards from '../pages/ProductsCards.jsx'
+import { loaderServices } from '../utils/service.routeLoader.js'
+import Header from '../components/Header.jsx'
+import loaderProductsByCategory from '../services/services.js'
+/* import Login from '../pages/Login.jsx'
 import loaderUser from './login.route.js'
-import SignUpForm from '../pages/SignUpForm.jsx'
+import SignUpForm from '../pages/SignUpForm.jsx' */
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <ErrorPage />,
-    children: [
-
-      {
-        path: "products/:productId",
-        element: <DetailsProducts />
-      }
-    ]
-
+    loader: loaderServices,
   },
   {
     path: "/products",
     element: <ProductsCards />,
-    loader: loaderGetProducts,
+    errorElement: <ErrorPage />,
+    loader: loaderServices,
   },
+
   {
+    path: "/header",
+    element: <Header />,
+    loader: loaderProductsByCategory
+  }
+ /*  {
     path: "/login",
     element: <Login />,
     loader: loaderUser,
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <SignUpForm />,
     loader: loaderUser,
-  }
+  } */
 
 ])
 

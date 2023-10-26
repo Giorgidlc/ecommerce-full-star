@@ -1,4 +1,3 @@
-//import { useLoaderData } from "react-router-dom"
 import ProductDetails from "./ProductDetails"
 import ImageProduct from "./ImageProducts"
 import NavButtons from "./NavCardButtons"
