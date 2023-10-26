@@ -1,10 +1,10 @@
 import request from 'supertest';
-import { server, app } from '../src/index.ts';
-import TelephonesModel from '../src/models/telephonesModel.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import TelephonesModel from '../out/models/telephonesModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Telephones Test', async () => {
-    let response: any;
+    let response;
     let connection = await openConnectionDb();
 
 describe('GET /telephones', () => {
@@ -46,7 +46,7 @@ describe('POST /telephones', () => {
 
     afterAll(async () => {
         if (newPhone && 'phone_id' in newPhone) {
-            const phoneId: string = newPhone.phone_id as string;
+            const phoneId = newPhone.phone_id;
             await TelephonesModel.delete(phoneId);
         } else {
             throw new Error('Invalid discount object');

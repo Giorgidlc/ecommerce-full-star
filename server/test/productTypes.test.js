@@ -1,11 +1,11 @@
 import request, { Response } from 'supertest';
-import { server, app } from '../src/index.ts';
-import ProductTypesModel from '../src/models/productTypesModel.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import ProductTypesModel from '../out/models/productTypesModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Product Types Test', async () => {
-    let response: Response;
-    let newProductTypeId: string;
+    let response;
+    let newProductTypeId;
     let connection = await openConnectionDb();
 
     describe('GET /productTypes', () => {

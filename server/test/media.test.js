@@ -1,10 +1,10 @@
 import request from 'supertest';
-import { server, app } from '../src/index';
-import MediaModel from '../src/models/mediaModel';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db';
+import { server, app } from '../out/index';
+import MediaModel from '../out/models/mediaModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Media Test', async () => {
-    let response: any;
+    let response;
     let connection = await openConnectionDb();
 
     describe('GET /media', () => {
@@ -47,7 +47,7 @@ describe('CRUD Media Test', async () => {
 
     afterAll(async () => {
         if (newMedia && 'media_id' in newMedia) {
-            const mediaId: string = newMedia.media_id as string;
+            const mediaId = newMedia.media_id;
             await MediaModel.delete(mediaId);
         } else {
             throw new Error('Invalid discount object');

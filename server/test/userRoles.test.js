@@ -1,10 +1,10 @@
 import request, { Response } from 'supertest';
-import { server, app } from '../src/index.ts';
-import UserRolesModel from '../src/models/userRolesModel.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import UserRolesModel from '../out/models/userRolesModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD User Roles Test', async () => {
-    let response: Response;
+    let response;
     let connection = await openConnectionDb();
 
     describe('GET /userRoles', () => {

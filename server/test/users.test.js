@@ -1,14 +1,13 @@
 import request from 'supertest';
-import {server,app} from '../src/index.ts';
-import UserModel from '../src/models/userModel.ts';
-import { Users, HttpUserResponse } from '../src/types/userTypes.ts';
-import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
+import {server,app} from '../out/index';
+import UserModel from '../out/models/userModel.';
+import {openConnectionDb, closeConnectionDb} from '../out/config/db';
 
 describe("CRUD Users Test",async() =>{ 
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
-    let response : HttpUserResponse<Users>;
+    let response;
     let connection =  await openConnectionDb();
 
     describe("GET /Users", () => {

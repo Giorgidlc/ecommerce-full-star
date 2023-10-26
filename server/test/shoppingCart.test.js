@@ -1,14 +1,13 @@
 import request from 'supertest';
-import { server, app } from '../src/index.ts';
-import ShoppingCartModel from '../src/models/shoppingCartModel.ts';
-import { ShoppingCarts, HttpShoppingCartResponse } from '../src/types/shoppingCartsTypes.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import ShoppingCartModel from '../out/models/shoppingCartModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe("CRUD Shopping Carts Test", async () => {
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
-    let response: HttpShoppingCartResponse<ShoppingCarts>;
+    let response;
     let connection = await openConnectionDb();
 
     describe("GET /shoppingCarts", () => {

@@ -1,11 +1,11 @@
 import request, { Response } from 'supertest';
-import { server, app } from '../src/index.ts';
-import PayingMethodsModel from '../src/models/payingMethodsModel.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import PayingMethodsModel from '../out/models/payingMethodsModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Paying Methods Test', async () => {
-    let response: Response;
-    let newPayingMethodId: string;
+    let response;
+    let newPayingMethodId;
     let connection = await openConnectionDb();
 
     describe('GET /payingMethods', () => {

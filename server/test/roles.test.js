@@ -1,11 +1,10 @@
 import request from 'supertest';
-import { server, app } from '../src/index.ts';
-import RoleModel from '../src/models/roleModel.ts';
-import { Roles, HttpRoleResponse } from '../src/types/roleTypes.ts';
-import { openConnectionDb, closeConnectionDb } from '../src/config/db.ts';
+import { server, app } from '../out/index';
+import RoleModel from '../out/models/roleModel';
+import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Roles Test', async () => {
-    let response: HttpRoleResponse<Roles>;
+    let response;
     let connection = await openConnectionDb();
 
     describe('GET /roles', () => {
