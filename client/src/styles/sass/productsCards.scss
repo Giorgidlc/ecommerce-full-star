@@ -1,0 +1,42 @@
+@use 'detailsProducts';
+@use 'navCardButtons';
+@use 'image-product';
+@use 'card';
+@use 'header';
+
+.layout-cards {
+  position: relative;
+  width: 100%;
+  max-width: 428px;
+  height: 100vh;
+  max-height: 852px;
+  margin: 0 auto;
+
+  display: grid; 
+  grid: 
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+    background-color: #212121;
+}
+
+.header { 
+  grid-area: header; 
+}
+
+.cardsProducts { 
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  overflow-y: scroll; 
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.footer { 
+  grid-area: footer; 
+}

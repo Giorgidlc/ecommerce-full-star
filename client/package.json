@@ -4,23 +4,28 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "server": "npx json-server --watch  ./api/db.json",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sass-home": "sass --watch ./src/styles/sass/home.scss:./src/styles/css/home.css",
+    "sass-products": "sass --watch ./src/styles/sass/productsCards.scss:./src/styles/css/productsCards.css"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.17.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "eslint": "^8.45.0",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "vite": "^4.4.5"
+    "@types/react": "18.2.28",
+    "@types/react-dom": "18.2.13",
+    "@vitejs/plugin-react-swc": "3.4.0",
+    "eslint": "8.51.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.3",
+    "json-server": "^0.17.4",
+    "vite": "4.4.11"
   }
 }
