@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createBrowserRouter } from 'react-router-dom'
 import { loaderGetProducts } from './Home.route.js'
 import ErrorPage from '../pages/ErrorPage.jsx'
@@ -30,3 +31,19 @@ const router = createBrowserRouter([
 
 export default router
 
+=======
+import { createBrowserRouter } from "react-router-dom"
+import Login from "../pages/Login"
+import loaderUser from "./login.route"
+
+const router = createBrowserRouter ([
+    {
+        path: "/login",
+        element: <Login/>,
+        loader: loaderUser,
+
+    }
+]) 
+
+export default router
+>>>>>>> feature/create-login
