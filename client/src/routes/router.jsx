@@ -5,9 +5,9 @@ import ProductsCards from '../pages/ProductsCards.jsx'
 import { loaderServices } from '../utils/service.routeLoader.js'
 import Header from '../components/Header.jsx'
 import loaderProductsByCategory from '../services/services.js'
-/* import Login from '../pages/Login.jsx'
-import loaderUser from './login.route.js'
-import SignUpForm from '../pages/SignUpForm.jsx' */
+import Login from '../pages/Login.jsx'
+// import loaderUser from './../utils/login.route.js'
+import SignUpForm from '../pages/SignUpForm.jsx' 
 
 const router = createBrowserRouter([
   {
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
     path: "/header",
     element: <Header />,
     loader: loaderProductsByCategory
-  }
- /*  {
+  },
+  {
     path: "/login",
     element: <Login />,
     
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <SignUpForm />,
-    loader: loaderUser,
-  } */
+    
+  } 
 
 ])
 

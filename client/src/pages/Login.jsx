@@ -1,16 +1,22 @@
 import '../styles/css/login.css'
+import { useNavigate } from 'react-router-dom'; 
 import LoginForm from '../components/LoginForm.jsx'
 import SignUpForm from '../pages/SignUpForm'
 import { useState } from 'react' 
 
 
 const Login = () => {
-    const [form, setForm ] = useState("login")
-    const showSignUp = () =>{
-        setForm('signUp')
+    const [form, setForm] = useState("login");
+    const navigation = useNavigate(); 
+
+    const showSignUp = () => {
+        setForm('signUp');
+        navigation('/register');  
     }
+
     const showLogin = () => {
-        setForm ('login')
+        setForm('login');
+        navigation('/login');  
     }
 
     if (form === 'login'){

@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
+
 
 const LoginForm = () => {
-    const [user_name, setUserName] = useState("");  // Añadido
-    const [surname, setSurname] = useState("");    // Añadido
+    const navigation = useNavigate();
+  
     const [email, setEmail] = useState("");
     const [user_password, setPassword] = useState("");
     const [error, setError] = useState(null);
@@ -34,9 +36,7 @@ const LoginForm = () => {
               headers: {
                   'Content-Type': 'application/json'
               },
-              body: JSON.stringify({ 
-                  user_name: user_name,  
-                  surname: surname, 
+              body: JSON.stringify({  
                   email: email, 
                   user_password: user_password  
               })
@@ -47,6 +47,8 @@ const LoginForm = () => {
           if (data.token) {
               localStorage.setItem('token', data.token);
               console.log('Successful Authentication');
+              navigation("/");
+
               setError(null);
           } else {
               setError('Invalid Credentials');
@@ -67,24 +69,6 @@ const LoginForm = () => {
                 <h2 className='titleLoginForm'>Log in to <br /> Cookies & Dreams</h2>
                 <section className='inputSection'>
                     {/* Inputs adicionales */}
-                    <label htmlFor='userName'>
-                        <input
-                            id='userName'
-                            type="text"
-                            placeholder='User Name'
-                            value={user_name}
-                            onChange={handleUserNameChange}
-                        />
-                    </label>
-                    <label htmlFor='surname'>
-                        <input
-                            id='surname'
-                            type="text"
-                            placeholder='Surname'
-                            value={surname}
-                            onChange={handleSurnameChange}
-                        />
-                    </label>
                     <label htmlFor='email'>
                         <input
                             id='email'
