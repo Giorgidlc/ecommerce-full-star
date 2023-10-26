@@ -1,13 +1,6 @@
 {
   "products": [
     {
-      "title": "Blueberry Muffin",
-      "price": "2.49€",
-      "description": "A tender muffin bursting with juicy blueberries.",
-      "category": 3,
-      "id": 4
-    },
-    {
       "title": "Oatmeal Raisin Cookie",
       "price": "2.99€",
       "description": "A chewy cookie with wholesome oats and plump raisins.",
