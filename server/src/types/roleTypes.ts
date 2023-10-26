@@ -9,6 +9,6 @@ type HttpRoleResponse<T> = {
 type Roles = {
     role_id: string;
     user_type: string;
-    }
+}
 
 export {Roles, HttpRoleResponse};

@@ -11,6 +11,6 @@ type ShoppingCarts = {
     user_id: string;
     paying_method_id: string;
     total: number; 
-
 }
+
 export {ShoppingCarts, HttpShoppingCartResponse};

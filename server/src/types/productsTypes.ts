@@ -14,6 +14,6 @@ type Products = {
     stock: number; 
     product_type_id: any;
     product_discount_id: any;
-
 }
+
 export {Products, HttpProductResponse};
