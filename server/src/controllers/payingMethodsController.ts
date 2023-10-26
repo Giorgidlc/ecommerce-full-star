@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import PayingMethodsModel from '../models/payingMethodsModel.ts';
+import PayingMethodsModel from '../models/payingMethodsModel';
 
 const getPayingMethods = async (_req: Request, res: Response) => {
     try {

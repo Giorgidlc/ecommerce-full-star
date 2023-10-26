@@ -1,15 +1,17 @@
 import express,{Request, Response} from 'express';
-import productRouter from './routes/productsRouter.ts';
-import userRouter from './routes/userRouter.ts';
-import shoppingCartRouter from './routes/shoppingCartRouter.ts';
-import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter.ts';
-import roleRouter from './routes/roleRouter.ts';
+import productRouter from './routes/productsRouter';
+import userRouter from './routes/userRouter';
+import shoppingCartRouter from './routes/shoppingCartRouter';
+import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter';
+import roleRouter from './routes/roleRouter';
 import userRolesRouter from './routes/userRolesRouter';
 import cors from 'cors';
 
 
+
+
 const app = express();
-const port = process.env.PORT ?? 5000;
+const port = 0;
 
 app.use(cors());
 app.use(express.json());
