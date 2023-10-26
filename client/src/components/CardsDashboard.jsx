@@ -18,7 +18,7 @@ return (
         <ProductImage image={prod.image} textImg={"Photography of " + prod.title}/>
         <article className="details">
           <ProductsDetails title={prod.title} price={prod.price} description={prod.description} />
-          <DashboardButtons />
+          <DashboardButtons prodId={prod.id} />
         </article>
       </section>
 
