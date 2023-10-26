@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import UserRolesModel from '../models/userRolesModel.ts';
+import UserRolesModel from '../models/userRolesModel';
 
 const getUserRoles = async (_req: Request, res: Response) => {
     try {

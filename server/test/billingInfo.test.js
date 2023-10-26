@@ -1,5 +1,7 @@
 import request from 'supertest';
 import { server, app } from '../out/index';
+
+
 const testBillingInfo = {
     street: '123 Main St',
     user_number: 42,

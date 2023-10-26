@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getRoles, getRole, createRole, updateRole, deleteRoleById } from '../controllers/roleController.ts';
+import { getRoles, getRole, createRole, updateRole, deleteRoleById } from '../controllers/roleController';
 
 const roleRouter = Router();
 

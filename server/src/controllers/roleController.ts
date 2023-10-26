@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import RoleModel from '../models/roleModel.ts';
+import RoleModel from '../models/roleModel';
 
 const getRoles = async (_req: Request, res: Response) => {
     try {

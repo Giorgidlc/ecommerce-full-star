@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {getShoppingCarts, getShoppingCart, createShoppingCart, updateShoppingCart, deleteShoppingCartById} from '../controllers/shoppingCartController.ts'
+import {getShoppingCarts, getShoppingCart, createShoppingCart, updateShoppingCart, deleteShoppingCartById} from '../controllers/shoppingCartController'
 
 const shoppingCartRouter = Router();
 

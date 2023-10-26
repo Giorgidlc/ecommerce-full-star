@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import DiscountsModel from "../models/discountsModel.ts";
+import DiscountsModel from "../models/discountsModel";
 
 const getDiscounts = async (_req: Request, res: Response) => {
     try {

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import MediaModel from '../models/mediaModel.ts';
+import MediaModel from '../models/mediaModel';
 
 const getMedia = async (_req: Request, res: Response) => {
     try {

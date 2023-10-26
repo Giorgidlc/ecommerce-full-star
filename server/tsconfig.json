@@ -120,5 +120,7 @@
   },
   "ts-node": {
     "esm": true
-  } 
+  } ,
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

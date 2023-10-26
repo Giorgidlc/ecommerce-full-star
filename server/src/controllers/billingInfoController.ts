@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import BillingInfoModel from '../models/billingInfoModel.ts';
+import BillingInfoModel from '../models/billingInfoModel';
 
 const getBillingInfo = async (_req: Request, res: Response) => {
   try {

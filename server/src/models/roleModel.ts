@@ -1,5 +1,5 @@
-import { openConnectionDb, closeConnectionDb } from "../config/db.ts";
-import { Roles } from "../types/roleTypes.ts";
+import { openConnectionDb, closeConnectionDb } from "../config/db";
+import { Roles } from "../types/roleTypes";
 
 const RoleModel = {
     async findAll() {

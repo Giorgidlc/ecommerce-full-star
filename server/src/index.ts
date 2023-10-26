@@ -1,16 +1,16 @@
 import express,{Request, Response} from 'express';
-import productRouter from './routes/productsRouter.ts';
-import userRouter from './routes/userRouter.ts';
-import shoppingCartRouter from './routes/shoppingCartRouter.ts';
-import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter.ts';
-import roleRouter from './routes/roleRouter.ts';
-import userRolesRouter from './routes/userRolesRouter.ts';
-import payingMethodsRouter from './routes/payingMethodsRouter.ts';
-import productTypesRouter from './routes/productTypesRouter.ts';
-import telephonesRouter from './routes/telephonesRouter.ts';
-import discountsRouter from './routes/discountsRouter.ts';
-import mediaRouter from './routes/mediaRouter.ts';
-import billingInfoRouter from './routes/billingInfoRouter.ts';
+import productRouter from './routes/productsRouter';
+import userRouter from './routes/userRouter';
+import shoppingCartRouter from './routes/shoppingCartRouter';
+import shoppingCartDetailsRouter from './routes/shoppingCartDetailsRouter';
+import roleRouter from './routes/roleRouter';
+import userRolesRouter from './routes/userRolesRouter';
+import payingMethodsRouter from './routes/payingMethodsRouter';
+import productTypesRouter from './routes/productTypesRouter';
+import telephonesRouter from './routes/telephonesRouter';
+import discountsRouter from './routes/discountsRouter';
+import mediaRouter from './routes/mediaRouter';
+import billingInfoRouter from './routes/billingInfoRouter';
 import cors from 'cors';
 
 

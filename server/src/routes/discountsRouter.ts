@@ -1,11 +1,5 @@
 import { Router } from "express";
-import {
-    getDiscounts,
-    getDiscount,
-    createDiscount,
-    updateDiscount,
-    deleteDiscountById,
-} from "../controllers/discountsController.ts";
+import {getDiscounts, getDiscount, createDiscount, updateDiscount, deleteDiscountById} from "../controllers/discountsController";
 
 const discountsRouter = Router();
 

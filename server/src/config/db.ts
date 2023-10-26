@@ -1,6 +1,6 @@
 import mysql,{Connection} from 'mysql2/promise';
-import module from './password.ts';
-import DbConfig from '../interfaces/configDB.interfaces.ts';
+import module from './password';
+import DbConfig from '../interfaces/configDB.interfaces';
 
 
 const DBCONFIG: DbConfig = {

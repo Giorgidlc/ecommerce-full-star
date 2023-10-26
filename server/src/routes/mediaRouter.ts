@@ -1,5 +1,5 @@
 import express from 'express';
-import * as mediaController from '../controllers/mediaController.ts';
+import * as mediaController from '../controllers/mediaController';
 
 const router = express.Router();
 

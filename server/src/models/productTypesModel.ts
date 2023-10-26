@@ -1,4 +1,4 @@
-import { openConnectionDb, closeConnectionDb } from '../config/db.ts';
+import { openConnectionDb, closeConnectionDb } from '../config/db';
 
 type ProductType = {
     types_id: string;

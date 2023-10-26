@@ -1,5 +1,5 @@
-import {openConnectionDb, closeConnectionDb} from "../config/db.ts";
-import { Users } from "../types/userTypes.ts";
+import {openConnectionDb, closeConnectionDb} from "../config/db";
+import { Users } from "../types/userTypes";
 
 const UserModel = {
 

@@ -1,5 +1,5 @@
-import {openConnectionDb, closeConnectionDb} from "../config/db.ts";
-import { Products } from "../types/productsTypes.ts";
+import {openConnectionDb, closeConnectionDb} from "../config/db";
+import { Products } from "../types/productsTypes";
 
 const ProductModel = {
 

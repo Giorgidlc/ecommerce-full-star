@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import TelephonesModel from '../models/telephonesModel.ts';
+import TelephonesModel from '../models/telephonesModel';
 
 const getTelephones = async (_req: Request, res: Response) => {
     try {

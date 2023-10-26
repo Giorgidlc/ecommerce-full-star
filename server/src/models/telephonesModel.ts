@@ -1,4 +1,4 @@
-import { openConnectionDb, closeConnectionDb } from '../config/db.ts';
+import { openConnectionDb, closeConnectionDb } from '../config/db';
 
 type Telephone = {
     phone_id: string;

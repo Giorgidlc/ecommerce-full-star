@@ -1,11 +1,5 @@
 import express from 'express';
-import {
-    getTelephones,
-    createTelephone,
-    getTelephoneById,
-    updateTelephone,
-    deleteTelephone,
-} from '../controllers/telephonesController.ts';
+import {getTelephones,createTelephone,getTelephoneById,updateTelephone,deleteTelephone,} from '../controllers/telephonesController';
 
 const router = express.Router();
 

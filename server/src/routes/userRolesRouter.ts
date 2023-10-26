@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getUserRoles, createUserRole, deleteUserRole } from '../controllers/userRolesController.ts';
+import { getUserRoles, createUserRole, deleteUserRole } from '../controllers/userRolesController';
 
 const userRolesRouter = Router();
 

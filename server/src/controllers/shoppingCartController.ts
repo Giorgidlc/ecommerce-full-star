@@ -1,5 +1,5 @@
 import { Request,Response } from "express";
-import shoppingCartModel from "../models/shoppingCartModel.ts";
+import shoppingCartModel from "../models/shoppingCartModel";
 
 const getShoppingCarts = async (_req: Request, res: Response) => {
     try {

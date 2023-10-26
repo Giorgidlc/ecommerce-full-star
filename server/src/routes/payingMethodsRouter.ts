@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getPayingMethods, createPayingMethod, deletePayingMethod } from '../controllers/payingMethodsController.ts';
+import { getPayingMethods, createPayingMethod, deletePayingMethod } from '../controllers/payingMethodsController';
 
 const payingMethodsRouter = Router();
 
