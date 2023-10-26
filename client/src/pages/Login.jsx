@@ -1,6 +1,6 @@
 import '../styles/css/login.css'
 import LoginForm from '../components/LoginForm.jsx'
-import SignUpForm from '../components/SignUpForm'
+import SignUpForm from '../pages/SignUpForm'
 import { useState } from 'react' 
 
 

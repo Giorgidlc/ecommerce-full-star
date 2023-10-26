@@ -7,7 +7,7 @@ import '../styles/css/productsCards.css'
 
 const CardsProducts = () => {
   const data = useLoaderData();
-
+  console.log(data);
   return (
     <div className="layout-cards">
       <header className="header">

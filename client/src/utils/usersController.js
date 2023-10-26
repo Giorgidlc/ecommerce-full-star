@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/users/"
+const API_URL = "http://localhost:5000/auth/profile"
 
 const getUser = async () => {
     
@@ -8,3 +8,6 @@ const getUser = async () => {
 }
 
 export default getUser
+
+//tenemos que capturar el token
+//tenemos que habilitar el login

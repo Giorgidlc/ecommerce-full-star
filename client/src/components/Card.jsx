@@ -1,5 +1,5 @@
 //import { useLoaderData } from "react-router-dom"
-import DetailsPruducts from "./ProductDetails"
+import ProductDetails from "./ProductDetails"
 import ImageProduct from "./ImageProducts"
 import NavButtons from "./NavCardButtons"
 import { PropTypes } from "prop-types"
@@ -12,7 +12,7 @@ const Card = ({product}) => {
     <section className="cardWraper">
       <ImageProduct />
       <article className="details">
-        <DetailsPruducts product={ product } />
+        <ProductDetails product={ product } />
         <NavButtons />
       </article>
     </section>

@@ -14,13 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/', (_req: Request, res: Response) => {
-  res.status(200).send('Jelow');
-});
 
 app.use('/products', productRouter);
 app.use('/media', mediaRouter);
-app.use('/auth', router);
+app.use('/', router);
 app.listen(port, () => console.log(`Running in http://localhost:${port}`));
 
 export default app;
