@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.65% </span>
+                <span class="strong">46.8% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/41</span>
+                <span class='fraction'>22/47</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>3/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.17% </span>
+                <span class="strong">48.48% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/29</span>
+                <span class='fraction'>16/33</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -124,9 +124,8 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -141,13 +140,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -183,47 +179,48 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import {openConnectionDb, closeConnectionDb} from "../config/db.ts";
 import { Product } from "../types/productsTypes.ts";
 &nbsp;
-&nbsp;
-&nbsp;
 const ProductModel = {
 &nbsp;
     async findAll(){
-&nbsp;
+    
         let connection = await openConnectionDb();
-        const [products, metadata] = await connection.query('SELECT * , BIN_TO_UUID(product_id) product_id FROM Products')
+        const [products, metadata] = await connection.query('SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products;')
         await closeConnectionDb(connection);//Cerrar la conexión en cada petición, podría ser ineficiente. Investigar como y donde hacerlo.
         return products;
-        
     },
 &nbsp;
     async findById<span class="fstat-no" title="function not covered" >(i</span>d: string){
-        //SELECT * FROM  poducts WHERE  id = UUID_TO_BIN('id')
+        //SELECT * FROM  Products WHERE  id = UUID_TO_BIN('id')
         let <span class="cstat-no" title="statement not covered" >connection = <span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >await openConnectionDb();</span></span></span>
-        const <span class="cstat-no" title="statement not covered" >[product, metadata] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query(`SELECT * , BIN_TO_UUID(product_id) product_id FROM products WHERE product_id = UUID_TO_BIN("${id}")`)</span>
+        const <span class="cstat-no" title="statement not covered" >[product, metadata] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query(`SELECT * , BIN_TO_UUID(product_id) product_id FROM Products WHERE product_id = UUID_TO_BIN("${id}")`)</span>
 <span class="cstat-no" title="statement not covered" >        await closeConnectionDb(connection);</span>
 <span class="cstat-no" title="statement not covered" >        return product;</span>
-&nbsp;
-&nbsp;
     },
     async create(product: Product){
-&nbsp;
+    
         let connection = await openConnectionDb();
-        let {product_name, product_description, price, stock, product_type_id,product_discount_id} = product;
-        const [newProduct, metadata] = await connection.query("INSERT INTO products (product_name, product_description, price, stock,product_type_id, product_discount_id ) VALUES (?, ?, ?, ?, UUID_TO_BIN(?), UUID_TO_BIN(?))", [product_name, product_description, price, stock, product_type_id,product_discount_id]);
+        let {product_name, product_description, price, stock, product_type_id, product_discount_id} = product;
+        const [newProduct, metadata] = await connection.query("INSERT INTO Products (product_name, product_description, price, stock, product_type_id, product_discount_id) VALUES (?, ?, ?, ?, UUID_TO_BIN(?), UUID_TO_BIN(?))", [product_name, product_description, price, stock, product_type_id, product_discount_id]);
         await closeConnectionDb(connection);
         return newProduct;
 &nbsp;
     },
-    async update<span class="fstat-no" title="function not covered" >( p</span>roduct : Product, id: string){ 
-       
+    async update<span class="fstat-no" title="function not covered" >(p</span>roduct : Product, id: string){ 
+    
         let <span class="cstat-no" title="statement not covered" >connection = <span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >await openConnectionDb();</span></span></span>
-        let {<span class="cstat-no" title="statement not covered" >product_name, product_description, price, stock, product_type_id,product_discount_id} = p</span>roduct;
-        const <span class="cstat-no" title="statement not covered" >[updatedProduct, metaData] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query('UPDATE products SET product_name = ?, product_description = ?, price = ?, stock = ?, product_type_id = ?, product_discount_id = ? WHERE product_id = UUID_TO_BIN(?)',[product_name, product_description, price, stock,product_type_id, product_discount_id, id])</span>
+        let {<span class="cstat-no" title="statement not covered" >product_name, product_description, price, stock, product_type_id, product_discount_id} = p</span>roduct;
+        const <span class="cstat-no" title="statement not covered" >[updatedProduct, metaData] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query('UPDATE Products SET product_name = ?, product_description = ?, price = ?, stock = ?, product_type_id = ?, product_discount_id = ?, WHERE product_id = UUID_TO_BIN(?)',[product_name, product_description, price, stock,product_type_id, product_discount_id, id])</span>
 <span class="cstat-no" title="statement not covered" >        await closeConnectionDb(connection);</span>
 <span class="cstat-no" title="statement not covered" >        return updatedProduct;</span>
 &nbsp;
@@ -231,7 +228,7 @@ const ProductModel = {
     async eliminateById<span class="fstat-no" title="function not covered" >(i</span>d: string){
         
         let <span class="cstat-no" title="statement not covered" >connection = <span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >await openConnectionDb();</span></span></span>
-        const <span class="cstat-no" title="statement not covered" >[eliminatedProduct, metaData] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query('DELETE FROM products WHERE product_id = UUID_TO_BIN(?)', [id]);</span>
+        const <span class="cstat-no" title="statement not covered" >[eliminatedProduct, metaData] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query('DELETE FROM Products WHERE product_id = UUID_TO_BIN(?)', [id]);</span>
 <span class="cstat-no" title="statement not covered" >        await closeConnectionDb(connection);</span>
 <span class="cstat-no" title="statement not covered" >        return eliminatedProduct;</span>
 &nbsp;
@@ -240,10 +237,16 @@ const ProductModel = {
     async eliminateByName(name: string){
         
         let connection = await openConnectionDb();
-        const [eliminatedProducts, metaData] = await connection.query('DELETE FROM products WHERE product_name = ?', [name]);
+        const [eliminatedProducts, metaData] = await connection.query('DELETE FROM Products WHERE product_name = ?', [name]);
         await closeConnectionDb(connection);
         return eliminatedProducts;
 &nbsp;
+    },
+    async addProductType<span class="fstat-no" title="function not covered" >(p</span>roductId:string, type: string){
+        let <span class="cstat-no" title="statement not covered" >connection = <span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >await openConnectionDb()</span></span></span>
+        const <span class="cstat-no" title="statement not covered" >[addForeignKey, metadata] = <span class="cstat-no" title="statement not covered" >a</span>wait connection.query('UPDATE Products SET product_type_id = (SELECT UUID_FROM_BIN(types_id) FROM Product_Types WHERE product_type = ?)WHERE product_id = UUID_TO_BIN(?)',[type, productId])</span>
+<span class="cstat-no" title="statement not covered" >        await closeConnectionDb(connection);</span>
+<span class="cstat-no" title="statement not covered" >        return addForeignKey;                                       </span>
     }
 }
 export default ProductModel;</pre></td></tr></table></pre>
@@ -253,7 +256,7 @@ export default ProductModel;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-24T10:56:11.320Z
+                at 2023-10-26T18:01:56.918Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

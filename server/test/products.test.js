@@ -1,17 +1,16 @@
 import request from 'supertest';
-import {server,app} from '../src/index.ts'
-import ProductModel from '../src/models/productModel.ts';
-import { Product, HttpProductResponse } from '../src/types/productsTypes.ts';
-import {openConnectionDb, closeConnectionDb} from '../src/config/db.ts';
-import { Connection } from 'mysql2/typings/mysql/lib/Connection';
+import {server,app} from '../out/index.js';
+import ProductModel from '../out/models/productModel.js';
+import {openConnectionDb, closeConnectionDb} from '../out/config/db.js';
+
 
 
 
 
 describe("CRUD Products Test",() =>{
             
-    let connection : Promise<any>;
-    let response : HttpProductResponse<Product>;
+    let connection;
+    let response;
    
 
     describe("GET /Products", () =>{
@@ -37,8 +36,6 @@ describe("CRUD Products Test",() =>{
           
                
     })
-      
-
        
         describe('POST /products',() =>{ 
     
@@ -50,7 +47,8 @@ describe("CRUD Products Test",() =>{
            }
    
            const wrongProduct = {
-               wrong_field: 2
+               wrong_field: 2.75,
+               wrong_field2: "pesa"
            }
    
            test('Should return a response with status 200 and type json when a correct product is Added', async () =>{
@@ -67,7 +65,7 @@ describe("CRUD Products Test",() =>{
            test('Should return a message insertion error If post wrong product ', async () =>{
                const response = await request(app).post('/products').send(wrongProduct)
                expect(response.status).toBe(400);
-               expect(response.body.message).toContain("Field 'title' doesn't have a default value")
+               expect(response.body.message).toContain("Invalid data. All fields are required.")
            })
    
            afterAll(async () => {
