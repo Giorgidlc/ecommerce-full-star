@@ -10,6 +10,7 @@ import productTypesRouter from './routes/productTypesRouter.ts';
 import telephonesRouter from './routes/telephonesRouter.ts';
 import discountsRouter from './routes/discountsRouter.ts';
 import mediaRouter from './routes/mediaRouter.ts';
+import billingInfoRouter from './routes/billingInfoRouter.ts';
 import cors from 'cors';
 
 
