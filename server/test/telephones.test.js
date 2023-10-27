@@ -5,11 +5,12 @@ import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD Telephones Test', async () => {
     let response;
-    let connection = await openConnectionDb();
+    let connection;
 
 describe('GET /telephones', () => {
     beforeEach(async () => {
         response = await request(app).get('/telephones').send();
+        connection = await openConnectionDb();
     });
 
     test('Should return a response with status 200 and type json, when I send a Get request', async () => {

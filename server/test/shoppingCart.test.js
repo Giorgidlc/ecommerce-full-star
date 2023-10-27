@@ -3,17 +3,18 @@ import { server, app } from '../out/index';
 import ShoppingCartModel from '../out/models/shoppingCartModel';
 import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
-describe("CRUD Shopping Carts Test", async () => {
+describe("CRUD Shopping Carts Test", () => {
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
     let response;
-    let connection = await openConnectionDb();
+    let connection ;
 
     describe("GET /shoppingCarts", () => {
 
         beforeEach(async () => {
             response = await request(app).get('/shoppingCarts').send();
+            connection =  await openConnectionDb();
         });
 
         test('Should return a response with status 200 and type json, when I send a Get request', async () => {

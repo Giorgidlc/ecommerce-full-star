@@ -46,7 +46,7 @@ var ProductModel = {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
                     case 1:
                         connection = _b.sent();
-                        return [4 /*yield*/, connection.query('SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products;')];
+                        return [4 /*yield*/, connection.query('SELECT * , BIN_TO_UUID(product_id) product_id FROM Products')];
                     case 2:
                         _a = _b.sent(), products = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
@@ -150,25 +150,6 @@ var ProductModel = {
                     case 3:
                         _b.sent();
                         return [2 /*return*/, eliminatedProducts];
-                }
-            });
-        });
-    },
-    addProductType: function (productId, type) {
-        return __awaiter(this, void 0, void 0, function () {
-            var connection, _a, addForeignKey, metadata;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
-                    case 1:
-                        connection = _b.sent();
-                        return [4 /*yield*/, connection.query('UPDATE Products SET product_type_id = (SELECT UUID_FROM_BIN(types_id) FROM Product_Types WHERE product_type = ?)WHERE product_id = UUID_TO_BIN(?)', [type, productId])];
-                    case 2:
-                        _a = _b.sent(), addForeignKey = _a[0], metadata = _a[1];
-                        return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
-                    case 3:
-                        _b.sent();
-                        return [2 /*return*/, addForeignKey];
                 }
             });
         });

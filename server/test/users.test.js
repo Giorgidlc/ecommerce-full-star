@@ -8,12 +8,13 @@ describe("CRUD Users Test",async() =>{
 
 //-----------------------------------------------GET---------------------------------------------------------------------
     let response;
-    let connection =  await openConnectionDb();
+    let connection;
 
     describe("GET /Users", () => {
     
         beforeEach(async() =>{
             response = await request(app).get('/users').send();
+            connection = await openConnectionDb();
         
         })
         test('Should return a response with status 200 and type json, when I send a Get request', async() => {

@@ -80,7 +80,6 @@ function closeConnectionDb(connection) {
                     return [4 /*yield*/, connection.end()];
                 case 1:
                     _a.sent();
-                    console.log('Database connection closed successfully');
                     return [3 /*break*/, 3];
                 case 2:
                     error_2 = _a.sent();

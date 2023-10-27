@@ -7,12 +7,13 @@ describe("CRUD Shopping Cart Details Test", async () => {
 
     //-----------------------------------------------GET---------------------------------------------------------------------
     let response;
-    let connection = await openConnectionDb();
+    let connection;
 
     describe("GET /shoppingCartDetails", () => {
 
         beforeEach(async () => {
             response = await request(app).get('/shoppingCartDetails').send();
+            connection = await openConnectionDb();
         });
 
         test('Should return a response with status 200 and type json, when I send a Get request', async () => {

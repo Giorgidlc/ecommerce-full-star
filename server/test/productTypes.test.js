@@ -3,14 +3,15 @@ import { server, app } from '../out/index';
 import ProductTypesModel from '../out/models/productTypesModel';
 import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
-describe('CRUD Product Types Test', async () => {
+describe('CRUD Product Types Test',  () => {
     let response;
     let newProductTypeId;
-    let connection = await openConnectionDb();
-
+    let connection;
     describe('GET /productTypes', () => {
         beforeEach(async () => {
             response = await request(app).get('/productTypes').send();
+            connection = await openConnectionDb();
+
         });
 
         test('Should return a response with status 200 and type json, when I send a Get request', async () => {

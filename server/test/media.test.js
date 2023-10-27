@@ -3,13 +3,14 @@ import { server, app } from '../out/index';
 import MediaModel from '../out/models/mediaModel';
 import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
-describe('CRUD Media Test', async () => {
+describe('CRUD Media Test', () => {
     let response;
-    let connection = await openConnectionDb();
+    let connection;
 
     describe('GET /media', () => {
         beforeEach(async () => {
         response = await request(app).get('/media').send();
+        connection  = await openConnectionDb()
     });
 
     test('Should return a response with status 200 and type json, when I send a Get request', async () => {
@@ -20,7 +21,7 @@ describe('CRUD Media Test', async () => {
     test('Should return all media', async () => {
         expect(response.body).toBeInstanceOf(Array);
     });
-
+,
     afterAll(async () => {
         server.close();
         closeConnectionDb(connection);
