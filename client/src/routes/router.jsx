@@ -21,12 +21,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: loaderProductsByCategory,
   },
-
-  {
-    path: "/header",
-    element: <Header />,
-    loader: loaderProductsByCategory
-  },
   {
     path: "/login",
     element: <Login />,
