@@ -1,4 +1,4 @@
-.header-container {
+.header-containerCards {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -7,7 +7,7 @@
     z-index: 3;
 }
 
-.header-container::before {
+.header-containerCards::before {
     content: "";
     position: absolute;
     left: 0;
@@ -18,7 +18,7 @@
     z-index: -1;
   }
 
-.headerButtons__btn-header {
+.headerButtons__btn-headerCards {
     display: flex;
     width: 3rem;
     height: 3rem;
@@ -26,13 +26,14 @@
     border: none;
 }
 
-.icon-user, .icon-car {
+.icon-embed {
     flex-grow: 1;
     width: 0;
     object-fit: contain;
+    cursor: pointer;
  }
   
-.titleCategory {
+.titleCategoryCards {
     color: white;
     text-align: center;
     text-transform: uppercase;

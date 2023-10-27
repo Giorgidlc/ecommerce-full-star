@@ -1,0 +1,30 @@
+.container-mainScreen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 760px;
+  justify-content: end;
+  background-color: aquamarine;
+
+}
+
+.wrapper-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1.5rem 1.5rem 3rem;
+  z-index: 2;
+}
+
+.container-mainScreen::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10rem;
+  background: linear-gradient(to top, rgba(66, 66, 66, 0.6), transparent);
+  z-index: 1;
+}
+

@@ -15,17 +15,19 @@ const Header = () => {
 
 
   return (
-    <header className="headerButtons">
-      <button className="headerButtons__btn-header" onClick={handleUserIconClick}>
+
+    <article className="header-container">
+      <button className="headerButtons__btn-header">
         <img src={icons.at(0)} alt="" className="icon-user" />
       </button>
       <article className="categoryCakes">
-        <h1 style={{ color: "black" }} className="titleCategory-cakes">{categoryName}</h1>
+        <h1 className="titleCategory">{categoryName}</h1>
       </article>
       <button className="headerButtons__btn-header">
         <img src={icons.at(1)} alt="" className="icon-car" />
       </button>
-    </header>
+    </article>
+
   )
 }
 
