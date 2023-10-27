@@ -38,7 +38,7 @@ const LoginForm = () => {
     return (
       <section className='loginForm'>
         <figure className="logoLogin">
-          <img src="/src/assets/LOGO.svg" alt="Logo" className="logoEmbed" />
+          <img src="../assets/icon-logo.svg" alt="Logo" className="logoEmbed" />
         </figure>
         <form onSubmit={handleSubmit} className='formContainer'>
           <h2 className='titleLoginForm'>Log in to <br /> Cookies & Dreams</h2>
@@ -63,7 +63,7 @@ const LoginForm = () => {
           <button type="submit" id='login--Btn'>Log In</button>
         </form>
         {error && <p>{error}</p>} {/* error message  */}
-      </section>
+     </section>
     );
   }
 
