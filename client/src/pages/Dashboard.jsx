@@ -1,6 +1,6 @@
 import '../styles/css/dashboard.css'
 import { NavbarDashboard } from "../components/NavbarDashboard";
-import MainDashboard from "../components/MainDashboard"
+import CategoryDashboard from "../components/CategoryDashboard"
 import CardsDashboard from '../components/CardsDashboard';
 
 const Dashboard = () => {
@@ -10,7 +10,7 @@ const Dashboard = () => {
                 <NavbarDashboard />
             </section>
             <section>
-                <MainDashboard />
+                <CategoryDashboard />
             </section>
             <section>
                 <CardsDashboard />

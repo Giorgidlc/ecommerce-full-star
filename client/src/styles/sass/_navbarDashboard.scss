@@ -1,15 +1,17 @@
 .admin-navbar {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; 
     align-items: center; 
-    padding: auto; 
+    padding: 0.5rem; 
+    background-color: #CF7E85;
+   
 }
 
 
 .titleDashboard{
     color: #000;
-    text-align: center;
-    font-family: Istok Web;
+    text-align: right;
+    font-family: sans-serif;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 700;
@@ -19,4 +21,11 @@
 .admin-navbar-logo {
     margin-left: auto; 
    
+}
+
+#home-button {
+    border: none;
+    background-color: transparent;
+    width: 1.9375rem;
+    height: 1.9375rem;
 }

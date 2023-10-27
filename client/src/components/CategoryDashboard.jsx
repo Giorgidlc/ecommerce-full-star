@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 
-const MainDashboard = () => {
+const CategoryDashboard = () => {
   
   return (
     <section className="categorySection">
@@ -22,4 +22,4 @@ const MainDashboard = () => {
   );
 };
 
-export default MainDashboard;
+export default CategoryDashboard;

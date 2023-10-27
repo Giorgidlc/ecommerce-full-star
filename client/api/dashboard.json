@@ -1,20 +1,6 @@
 {
   "products": [
     {
-      "title": "Oatmeal Raisin Cookie",
-      "price": "2.99€",
-      "description": "A chewy cookie with wholesome oats and plump raisins.",
-      "category": 1,
-      "id": 5
-    },
-    {
-      "title": "Strawberry Shortcake",
-      "price": "4.99€",
-      "description": "Layers of fluffy cake, fresh strawberries, and whipped cream.",
-      "category": 2,
-      "id": 6
-    },
-    {
       "title": "Banana Nut Muffin",
       "price": "2.49€",
       "description": "A moist muffin filled with ripe bananas and crunchy walnuts.",

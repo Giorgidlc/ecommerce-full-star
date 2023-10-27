@@ -1,14 +1,15 @@
 .admin-navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: auto;
+  padding: 0.5rem;
+  background-color: #CF7E85;
 }
 
 .titleDashboard {
   color: #000;
-  text-align: center;
-  font-family: Istok Web;
+  text-align: right;
+  font-family: sans-serif;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 700;
@@ -17,6 +18,101 @@
 
 .admin-navbar-logo {
   margin-left: auto;
+}
+
+#home-button {
+  border: none;
+  background-color: transparent;
+  width: 1.9375rem;
+  height: 1.9375rem;
+}
+
+.ButtonsDashboard__btn-delete {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.ButtonsDashboard__btn-update {
+  display: flex;
+  width: 2.5rem;
+  justify-content: space-around;
+  background-color: transparent;
+  border: none;
+}
+
+.image-product {
+  display: flex;
+  width: 9rem;
+  align-items: start;
+  border-radius: 1.6rem;
+  background-color: #FEC9D1;
+}
+
+.image-product__embed {
+  flex-grow: 1;
+  width: 0;
+  object-fit: contain;
+}
+
+.all-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  gap: 0.1rem;
+}
+
+.all-description__title {
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: black;
+}
+
+.all-description__price {
+  font: normal normal 0.75rem sans-serif;
+  background-color: #65AFDE;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: 15px;
+  width: 3.5rem;
+  padding: 0.2rem;
+}
+
+.all-description__description {
+  color: black;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.layout {
+  position: relative;
+  width: 360px;
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid: "header" auto "category" 1fr "main" 1fr;
+}
+
+.admin-navbar {
+  grid-area: header;
+}
+
+#cards {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
 }
 
 /*# sourceMappingURL=dashboard.css.map */

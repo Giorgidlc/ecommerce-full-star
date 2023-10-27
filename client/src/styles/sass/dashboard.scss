@@ -1,2 +1,31 @@
-@use 'navbarDashboard'
+@use 'navbarDashboard';
+@use 'dashboardButtons';
+@use 'productImage';
+@use 'productsDetails';
 
+.layout {
+    position: relative;
+    width: 360px;
+    height: 100vh;
+    margin: 0 auto;
+  
+    display: grid; 
+    grid: 
+      "header" auto
+      "category" 1fr
+      "main" 1fr
+      ;
+  }
+  
+  .admin-navbar { 
+    grid-area: header; 
+  }
+  
+  #cards { 
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  
+  }
