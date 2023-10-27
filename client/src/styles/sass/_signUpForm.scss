@@ -1,0 +1,70 @@
+.signUpform--Page {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  max-width: 428px;
+  height: 100vh;
+  max-height: 852px;
+  margin: 0 auto;
+  align-items: center;
+  grid: 
+  "header" auto
+  "form" 1fr
+  "mensage-error" auto 
+  / 1fr;
+  background-color: #CF7E85;
+}
+
+.titleSignUpForm{
+  margin-top: 2rem;
+  grid-area: header;
+  text-align: center;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.form-container-signUp {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.5rem;
+
+
+}
+
+.inputSection {
+  border-radius: 0.30rem;
+  border: none;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 0.625rem;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#signup-Btn {
+  width: 5.9375rem;
+  height: 2rem;
+  background-color: #649DFF;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  align-self: center;
+  margin-top: 1.5rem;
+}
+
+.labell {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: white;
+}

@@ -66,42 +66,34 @@ const SignUpForm = () => {
   }
 
   return (
-    <section className='signupForm'>
+    <section className='signUpform--Page'>
       <h2 className='titleSignUpForm'>Sign Up for Cookies & Dreams</h2>
-      <form onSubmit={handleSubmit}>
-        <section className='name-inputSection'>
-          <label htmlFor='name-input'>Name:</label>
-          <input
+      <form className="form-container-signUp" onSubmit={handleSubmit}>
+        
+          <label className='labell' htmlFor='name-input'>Name:</label>
+          <input className='inputSection'
             type="text"
             value={user_name}
             onChange={handleNameChange}
-          />
-        </section>
-        <section className='surname-inputSection'>
-          <label htmlFor='surname-input'>Surname:</label>
-          <input
+          />        
+          <label className='labell' htmlFor='surname-input'>Surname:</label>
+          <input className='inputSection'
             type="text"
             value={surname}
             onChange={handleSurnameChange}
-          />
-        </section>
-        <section className='email-inputSection'>
-          <label htmlFor='email-input'>E-mail:</label>
-          <input
+          />        
+          <label className='labell' htmlFor='email-input'>E-mail:</label>
+          <input className='inputSection'
             type="text"
             value={email}
             onChange={handleEmailChange}
-          />
-        </section>
-        <section className='password-inputSection'>
-          <label htmlFor='password-input'>Password:</label>
-          <input
+          />        
+          <label className='labell' htmlFor='password-input'>Password:</label>
+          <input className='inputSection'
             type="password"
             value={user_password}
             onChange={handlePasswordChange}
-          />
-        </section>
-        <button type="submit" id='signup-Btn'>Sign Up</button>
+          />        <button type="submit" id='signup-Btn'>Sign Up</button><br/>
       </form>
     </section>
   );
