@@ -3,7 +3,6 @@ import { useLoaderData, /* Outlet */ } from 'react-router-dom'
 import { Footer } from '../components/Footer.jsx'
 import ProductsMainScreen from '../components/ProductsMainScreen';
 
-
 const Home = () => {
   const data = useLoaderData();
   console.log(data);
@@ -24,4 +23,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;

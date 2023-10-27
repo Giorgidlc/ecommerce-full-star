@@ -8,22 +8,50 @@ export const uploadMedia = async (req: Request, res: Response) => {
 
     try {
         const filePath = req.file.path;
+        console.log("Archivo subido a:", filePath);
+
         const fileType = req.file.mimetype.split("/")[0];
-        
+
         const media = await MediaModel.create({
             media_type: fileType,
             media_path: filePath,
             product_id: req.body.product_id  // Asumiendo que estás enviando el ID del producto con el formulario de archivo
         });
-        
+
         res.status(200).json({
             message: `Archivo subido con éxito. Ruta: ${filePath}`,
             media
         });
 
-    } catch (error : unknown) {
+    } catch (error: unknown) {
         res.status(500).json({ message: (error as Error).message });
     }
 }
 
-export default uploadMedia;
+export const getBackgroundVideo = async (req: Request, res: Response) => {
+    try {
+        const video = await MediaModel.findOne({ media_type: 'video' });
+        if (video) {
+            res.json({ path: video.media_path });
+        } else {
+            res.status(404).json({ message: 'Video no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const getAllImages = async (req: Request, res: Response) => {
+    try {
+        const images = await MediaModel.find({ media_type: 'image' });
+        if (images && images.length > 0) {
+            const imagePaths = images.map(img => img.media_path);
+            res.json(imagePaths);
+        } else {
+            res.status(404).json({ message: 'Imágenes no encontradas' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+    export default uploadMedia;
