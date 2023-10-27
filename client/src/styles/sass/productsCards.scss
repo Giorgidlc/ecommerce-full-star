@@ -1,8 +1,9 @@
-@use 'detailsProducts';
+@use 'productsDetails';
 @use 'navCardButtons';
 @use 'image-product';
 @use 'card';
-@use 'header';
+@use 'headerCards';
+@use 'footerCards';
 
 .layout-cards {
   position: relative;
@@ -14,23 +15,22 @@
 
   display: grid; 
   grid: 
-    "header" auto
     "main" 1fr
     "footer" auto
     / 1fr;
-    background-color: #212121;
+    background-color: #EFE1CB;
 }
 
-.header { 
+/* .header { 
   grid-area: header; 
-}
+} */
 
 .cardsProducts { 
   grid-area: main;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 8rem 1.5rem 1.5rem;
   overflow-y: scroll; 
 }
 ::-webkit-scrollbar {

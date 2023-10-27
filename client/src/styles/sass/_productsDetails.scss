@@ -22,4 +22,13 @@
 .all-description__description {
   font: normal 0.75rem sans-serif;
   width: 11.0625rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+ 
+}
+
+.all-description__description:hover {
+  overflow: visible;
 }

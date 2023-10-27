@@ -24,12 +24,16 @@
   grid-area: main;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   overflow-y: scroll; 
   background-color: green;
 }
 ::-webkit-scrollbar {
   display: none;
+}
+
+.headerButtons {
+  position: absolute;
+  width: 100%;
 }
 
 .footer { 

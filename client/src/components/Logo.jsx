@@ -1,4 +1,4 @@
-const logo = 'src/assets/logo-dreams&cookies.svg'
+const logo = '/src/assets/logo-dreams&cookies.svg'
 
 const Logo = () => {
   return (
