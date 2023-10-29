@@ -12,8 +12,10 @@ export const tokenExpiration = process.env.TOKEN_EXPIRATION || "1h";
 const app = express();
 const port = 5000;
 
-app.use('/static/videos', express.static(path.resolve(__dirname, './videos')));
-console.log("Carpeta de videos servida:", path.resolve(__dirname, './videos'));
+
+app.use('/static/videos', express.static(path.resolve(__dirname, '../videos')));
+
+console.log("Resolved video path:", path.resolve(__dirname, '../videos'));
 
 app.use(cors());
 app.use(express.json());

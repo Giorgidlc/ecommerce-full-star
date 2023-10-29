@@ -30,16 +30,13 @@ export const uploadMedia = async (req: Request, res: Response) => {
 
 export const getBackgroundVideo = async (req: Request, res: Response) => {
     try {
-        const video = await MediaModel.findOne({ media_type: 'video' });
-        if (video) {
-            res.json({ path: video.media_path });
-        } else {
-            res.status(404).json({ message: 'Video no encontrado' });
-        }
+        const videoPath = "/static/videos/Background_1.mp4"; 
+        res.json({ path: videoPath });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 export const getAllImages = async (req: Request, res: Response) => {
     try {

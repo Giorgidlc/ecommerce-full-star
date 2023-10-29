@@ -27,7 +27,7 @@ setTemporaryPassword('virF5@gmail.com', 'passwordTemporal123');
 
 
 const authController = {
-    register: async (req: Request, res: Response) => {
+        register: async (req: Request, res: Response) => {
         const { user_name, surname, email, user_password } = req.body;
 
         console.log("user_name:", user_name);
