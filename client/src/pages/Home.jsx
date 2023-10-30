@@ -30,13 +30,13 @@ const Home = () => {
     return (
         <main className="layout">
             {videoName && <VideoPlayer src={videoURL} />}
-            {/* {data.products.length > 0 ? (
+            {data.products.length > 0 ? (
                 data.products.map((product) => (
                     <ProductsMainScreen key={product.id} product={product} />
                 ))
             ) : (
                 <h2>Card not found</h2>
-            )} */}
+            )}
             <section className="footer">
                 <Footer />
             </section>

@@ -136,7 +136,7 @@
   gap: 1rem;
 }
 
-/* .video-background {
+.video-background {
   position: absolute;
   display: flex;
   height: 100vh;
@@ -150,27 +150,8 @@
   flex-grow: 1;
   width: 0;
   object-fit: cover;
-} */
+} 
 
-.video-background {
-  position: absolute;
-  top: 0;   /* Estas propiedades aseguran que el video cubra completamente el área de la pantalla */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
-  background: #212121; 
-}
-
-.videoproduct {
-  flex-grow: 1;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-}
 
 .footer {
   grid-area: footer;
