@@ -239,7 +239,6 @@ figure {
 .headerButtons {
   position: absolute;
   width: 100%;
-<<<<<<< HEAD
   z-index: -1;
   background: #212121;
 }
@@ -250,9 +249,6 @@ figure {
   object-fit: cover;
 } 
 
-=======
-}
->>>>>>> 958cb528eeec542d49776d5ae8a995b55e09e8ef
 
 .footer {
   grid-area: footer;
