@@ -5,16 +5,16 @@ const CategoryDashboard = () => {
   
   return (
     <section className="categorySection">
-      <h2>Category</h2>
+      <h2 className='title__Category'>Category</h2>
       <section className="categoryButtons">
         <Link to=""> 
-          <button className='filterButtons'>Cookies</button>
+          <button className='filterButtons'>COOKIES</button>
         </Link>
         <Link to="">
-          <button className='filterButtons'>Cakes</button>
+          <button className='filterButtons'>CAKES</button>
         </Link>
         <Link to="">
-          <button className='filterButtons'>Cupcakes</button>
+          <button className='filterButtons'>CUPCAKES</button>
         </Link>
       </section>
     </section>
