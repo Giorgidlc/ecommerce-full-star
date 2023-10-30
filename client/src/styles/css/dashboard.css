@@ -29,8 +29,8 @@
 
 .ButtonsDashboard__btn-delete {
   display: flex;
-  justify-content: space-around;
-  align-items: start;
+  justify-content: space-between;
+  align-items: end;
   width: 100%;
   border: none;
   background-color: transparent;
@@ -39,7 +39,7 @@
 .ButtonsDashboard__btn-update {
   display: flex;
   width: 2.5rem;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: transparent;
   border: none;
 }
@@ -92,6 +92,22 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.cardWraper {
+  display: flex;
+  height: 9.6875rem;
+  padding: 0.6rem;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 1.6rem;
+  background-color: #CF7E85;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .layout {
