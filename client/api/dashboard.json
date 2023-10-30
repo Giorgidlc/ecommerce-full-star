@@ -9,6 +9,14 @@
       "id": 7
     },
     {
+      "title": "Banana Nut Muffin",
+      "price": "2.49€",
+      "description": "A moist muffin filled with ripe bananas and crunchy walnuts.",
+      "category": 3,
+      
+      "id": 6
+    },
+    {
       "title": "Peanut Butter Cookie",
       "price": "2.99€",
       "description": "A rich and nutty cookie made with creamy peanut butter.",
