@@ -29,9 +29,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var billingInfoController = __importStar(require("../controllers/billingInfoController"));
 var router = express_1.default.Router();
-router.get('/billingInfo', billingInfoController.getBillingInfo);
-router.post('/billingInfo', billingInfoController.createBillingInfo);
-router.put('/billingInfo/:id', billingInfoController.updateBillingInfo);
-router.delete('/billingInfo/:id', billingInfoController.deleteBillingInfo);
+router.get('/', billingInfoController.getBillingInfo);
+router.post('/', billingInfoController.createBillingInfo);
+router.put('/:id', billingInfoController.updateBillingInfo);
+router.delete('/:id', billingInfoController.deleteBillingInfo);
 exports.default = router;
 //# sourceMappingURL=billingInfoRouter.js.map

@@ -5,6 +5,6 @@ const payingMethodsRouter = Router();
 
 payingMethodsRouter.get('/', getPayingMethods);
 payingMethodsRouter.post('/', createPayingMethod);
-payingMethodsRouter.delete('/', deletePayingMethod);
+payingMethodsRouter.delete('/:id', deletePayingMethod);
 
 export default payingMethodsRouter;

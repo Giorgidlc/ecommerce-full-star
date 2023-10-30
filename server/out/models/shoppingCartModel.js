@@ -85,7 +85,7 @@ var ShoppingCartModel = {
                     case 1:
                         connection = _b.sent();
                         shopping_cart_id = shoppingCart.shopping_cart_id, user_id = shoppingCart.user_id, paying_method_id = shoppingCart.paying_method_id, total = shoppingCart.total;
-                        return [4 /*yield*/, connection.query("INSERT INTO Shopping_Carts (shopping_cart_id, user_id, paying_method_id, total) VALUES (UUID_TO_BIN(?), UUID_TO_BIN(?), UUID_TO_BIN(?), ?)", [shopping_cart_id, user_id, paying_method_id, total])];
+                        return [4 /*yield*/, connection.query("INSERT INTO Shopping_Cart (shopping_cart_id, user_id, paying_method_id, total) VALUES (UUID_TO_BIN(?), UUID_TO_BIN(?), UUID_TO_BIN(?), ?)", [shopping_cart_id, user_id, paying_method_id, total])];
                     case 2:
                         _a = _b.sent(), newShoppingCart = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];

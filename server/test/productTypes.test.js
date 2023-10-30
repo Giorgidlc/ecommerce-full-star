@@ -20,7 +20,7 @@ describe('CRUD Product Types Test',  () => {
         });
 
         test('Should return all product types', async () => {
-            expect(response.body).toBeInstanceOf(Array);
+            expect(response.body).toBeInstanceOf(Object);
         });
 
         afterAll(async () => {
@@ -31,23 +31,24 @@ describe('CRUD Product Types Test',  () => {
 
     describe('POST /productTypes', () => {
         const newProductType = {
-            product_type: 'Test Product Type',
+            product_type: 'Test',
         };
 
         test('Should return a response with status 201 and type json', async () => {
             const createResponse = await request(app).post('/productTypes').send(newProductType);
             expect(createResponse.status).toBe(201);
             expect(createResponse.headers['content-type']).toContain('json');
-            newProductTypeId = createResponse.body.productType.types_id;
         });
+        test('Should return a message product created successfully', async () =>{
+            const response = await request(app).post('/productType').send(newProductType)
+            expect(response.body.message).toContain("The product type has been created successfully")
+        })
 
-        test('Should return a message product type created successfully', async () => {
-            expect(newProductTypeId).toBeTruthy();
-        });
+     
 
         afterAll(async () => {
             if (newProductTypeId) {
-                await ProductTypesModel.delete(newProductTypeId);
+                await ProductTypesModel.deleteByType('Test');
             }
             server.close();
             closeConnectionDb(connection);

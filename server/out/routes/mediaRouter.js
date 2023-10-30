@@ -29,9 +29,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var mediaController = __importStar(require("../controllers/mediaController"));
 var router = express_1.default.Router();
-router.get('/media', mediaController.getMedia);
-router.post('/media', mediaController.createMedia);
-router.put('/media/:id', mediaController.updateMedia);
-router.delete('/media/:id', mediaController.deleteMedia);
+router.get('/', mediaController.getMedia);
+router.post('/', mediaController.createMedia);
+router.put('/:id', mediaController.updateMedia);
+router.delete('/:id', mediaController.deleteMedia);
 exports.default = router;
 //# sourceMappingURL=mediaRouter.js.map

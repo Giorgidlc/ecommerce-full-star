@@ -1,6 +1,6 @@
 import request, { Response } from 'supertest';
 import { server, app } from '../out/index';
-import UserRolesModel from '../out/models/';
+import UserRolesModel from '../out/models/userRolesModel';
 import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
 describe('CRUD User Roles Test', async () => {

@@ -98,8 +98,7 @@ var createProductType = function (req, res) { return __awaiter(void 0, void 0, v
                     return [2 /*return*/, res.status(400).json({ message: 'Need to introduce body data' })];
                 }
                 res.status(201).json({
-                    message: 'The product type has been created successfully',
-                    productType: newProductType,
+                    message: 'The product type has been created successfully'
                 });
                 return [3 /*break*/, 3];
             case 2:

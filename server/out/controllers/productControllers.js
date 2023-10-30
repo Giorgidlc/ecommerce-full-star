@@ -85,20 +85,24 @@ var getProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, 
 }); };
 exports.getProduct = getProduct;
 var createProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newProduct, error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, product_name, product_description, price, stock, newProduct, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, product_name = _a.product_name, product_description = _a.product_description, price = _a.price, stock = _a.stock;
+                if (!product_name || !product_description || !price || !stock) {
+                    return [2 /*return*/, res.status(400).json({ message: 'Invalid data. All fields are required.' })];
+                }
                 return [4 /*yield*/, productModel_1.default.create(req.body)];
             case 1:
-                newProduct = _a.sent();
+                newProduct = _b.sent();
                 if (!newProduct) {
-                    return [2 /*return*/, res.status(400).json({ message: 'Need to Introduce Body Data' })];
+                    return [2 /*return*/, res.status(400).json({ message: 'Missing Data' })];
                 }
-                return [2 /*return*/, res.status(201).json({ message: 'The Product has been created succesfully' })];
+                return [2 /*return*/, res.status(201).json({ message: 'The Product has been created successfully!' })];
             case 2:
-                error_3 = _a.sent();
+                error_3 = _b.sent();
                 return [2 /*return*/, res.json({ message: error_3.message })];
             case 3: return [2 /*return*/];
         }

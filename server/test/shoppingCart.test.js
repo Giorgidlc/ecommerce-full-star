@@ -59,7 +59,7 @@ describe("CRUD Shopping Carts Test", () => {
 
         test('Should return an error message if post a wrong shopping cart', async () => {
             const response = await request(app).post('/shoppingCarts').send(wrongShoppingCart);
-            expect(response.status).toBe(500);
+            expect(response.status).toBe(404);
             expect(response.body.message).toContain("Field 'title' doesn't have a default value");
         });
 

@@ -46,7 +46,7 @@ var PayingMethodsModel = {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
                     case 1:
                         connection = _b.sent();
-                        return [4 /*yield*/, connection.query('SELECT * , BIN_TO_UUID(paying_method_id) paying_method_id FROM Paying_methods')];
+                        return [4 /*yield*/, connection.query('SELECT * FROM Paying_methods')];
                     case 2:
                         _a = _b.sent(), payingMethods = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
@@ -65,7 +65,7 @@ var PayingMethodsModel = {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
                     case 1:
                         connection = _b.sent();
-                        return [4 /*yield*/, connection.query('INSERT INTO Paying_methods (paying_method_name) VALUES (?)', [paying_method_name])];
+                        return [4 /*yield*/, connection.query('INSERT INTO paying_methods (paying_method_name) VALUES (?)', [paying_method_name])];
                     case 2:
                         _a = _b.sent(), newPayingMethod = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
@@ -95,6 +95,50 @@ var PayingMethodsModel = {
             });
         });
     },
+    update: function (payingMethod, id) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, _a, updatedPayingMethod, metaData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
+                    case 1:
+                        connection = _b.sent();
+                        return [4 /*yield*/, connection.query('UPDATE Paying_method SET paying_method_name = ? WHERE billing_id = UUID_TO_BIN(?)', [payingMethod, id])];
+                    case 2:
+                        _a = _b.sent(), updatedPayingMethod = _a[0], metaData = _a[1];
+                        return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
+                    case 3:
+                        _b.sent();
+                        if (updatedPayingMethod && 'affectedRows' in updatedPayingMethod && updatedPayingMethod.affectedRows > 0) {
+                            return [2 /*return*/, payingMethod];
+                        }
+                        else {
+                            return [2 /*return*/, null];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    },
+    eliminateByPayingMethod: function (payingMethod) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, _a, eliminatedPayingMethod, metaData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
+                    case 1:
+                        connection = _b.sent();
+                        return [4 /*yield*/, connection.query('DELETE FROM Paying_methods WHERE paying_method_name = ?', [payingMethod])];
+                    case 2:
+                        _a = _b.sent(), eliminatedPayingMethod = _a[0], metaData = _a[1];
+                        return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
+                    case 3:
+                        _b.sent();
+                        return [2 /*return*/, eliminatedPayingMethod];
+                }
+            });
+        });
+    }
 };
 exports.default = PayingMethodsModel;
 //# sourceMappingURL=payingMethodsModel.js.map

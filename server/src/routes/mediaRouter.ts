@@ -3,9 +3,9 @@ import * as mediaController from '../controllers/mediaController';
 
 const router = express.Router();
 
-router.get('/media', mediaController.getMedia);
-router.post('/media', mediaController.createMedia);
-router.put('/media/:id', mediaController.updateMedia);
-router.delete('/media/:id', mediaController.deleteMedia);
+router.get('/', mediaController.getMedia);
+router.post('/', mediaController.createMedia);
+router.put('/:id', mediaController.updateMedia);
+router.delete('/:id', mediaController.deleteMedia);
 
 export default router;

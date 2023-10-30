@@ -23,7 +23,7 @@ const ShoppingCartModel = {
     
         let connection = await openConnectionDb();
         let {shopping_cart_id, user_id, paying_method_id, total} = shoppingCart;
-        const [newShoppingCart, metadata] = await connection.query("INSERT INTO Shopping_Carts (shopping_cart_id, user_id, paying_method_id, total) VALUES (UUID_TO_BIN(?), UUID_TO_BIN(?), UUID_TO_BIN(?), ?)", [shopping_cart_id, user_id, paying_method_id, total]);
+        const [newShoppingCart, metadata] = await connection.query("INSERT INTO Shopping_Cart (shopping_cart_id, user_id, paying_method_id, total) VALUES (UUID_TO_BIN(?), UUID_TO_BIN(?), UUID_TO_BIN(?), ?)", [shopping_cart_id, user_id, paying_method_id, total]);
         await closeConnectionDb(connection);
         return newShoppingCart;
     },

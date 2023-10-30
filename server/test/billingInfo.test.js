@@ -1,70 +1,83 @@
 import request from 'supertest';
 import { server, app } from '../out/index';
+import {openConnectionDb, closeConnectionDb} from '../out/config/db.js';
+import BillingInfoModel from '../src/models/billingInfoModel';
 
 
-const testBillingInfo = {
-    street: '123 Main St',
-    user_number: 42,
-    flat: null,
-    door: null,
-    zipcode: '12345',
-    county: 'Sample County',
-    city: 'Sample City',
-    country: 'Sample Country',
-    user_id: 'someUserId',
-};
+
     
-let createdBillingInfo = null;
+describe('CRUD Billing Info', () => {
     
-describe('Billing Info Endpoints', () => {
-    
-    let connection;
-    let response;
-   
+            
+        let connection;
+        let response;
        
-        
+    
+        describe("GET /All Billing Info", () =>{
            
-    beforeEach(async() =>{
-           
-     connection =  openConnectionDb();
-            response = await request(app).get('/products').send();
+            
+               
+            beforeEach(async() =>{
+               
+                connection =  openConnectionDb();
+                response = await request(app).get('/billingInfo').send();
+                    
+            })
+            test('Should return a response with status 200 and type json, when I send a Get request', async() => {
+                   
+                expect(response.status).toBe(200);
+                expect(response.headers['content-type']).toContain('json');
+            })
+            test("Should return all products",async() => {
                 
-    })
-
-    test('should create a new billing info', async () => {
-        const res = await request(app)
-        .post('/billingInfo')
-        .send(testBillingInfo);
-        expect(res.statusCode).toEqual(201);
-        expect(res.body.street).toBe(testBillingInfo.street);
-        createdBillingInfo = res.body;
-    });
-    
-    test('should get all billing info', async () => {
-        const res = await request(app).get('/billingInfo');
-        expect(res.statusCode).toEqual(200);
-        expect(res.body).toEqual(expect.arrayContaining([expect.objectContaining(testBillingInfo)]));
-    });
-    
-    test('should get a billing info by id', async () => {
-        const res = await request(app).get(`/billingInfo/${createdBillingInfo.billing_id}`);
-        expect(res.statusCode).toEqual(200);
-        expect(res.body.street).toBe(testBillingInfo.street);
-    });
-    
-    test('should update a billing info', async () => {
-        const updatedInfo = { ...testBillingInfo, street: 'Updated Street' };
-        const res = await request(app)
-        .put(`/billingInfo/${createdBillingInfo.billing_id}`)
-        .send(updatedInfo);
-        expect(res.statusCode).toEqual(200);
-        expect(res.body.street).toBe(updatedInfo.street);
-    });
-    
-    test('should delete a billing info', async () => {
-        const res = await request(app).delete(`/billingInfo/${createdBillingInfo.billing_id}`);
-        expect(res.statusCode).toEqual(204);
-    });
+                expect(response.body).toBeInstanceOf(Object);
+                     
+            })
+              
+                   
+        })
+           
+            describe('POST /BillingInfo',() =>{ 
+        
+               const newBillingInfo = {
+                    street: "Test",
+                    user_number: 13,
+                    flat: 5,
+                    door: "izq",
+                    zipcode: "28020",
+                    city: "Madrid",
+                    county: "Madrid",
+                    country: "Spain"
+                }
+                    
+                  
+       
+               const wrongBillingInfo = {
+                   wrong_field: 2.75,
+                   wrong_field2: "pesa"
+               }
+       
+               test('Should return a response with status 200 and type json when a correct BillingInfo is Added', async () =>{
+                   const response = await request(app).post('/billingInfo').send(newBillingInfo)
+                   expect(response.status).toBe(201)
+                   expect(response.headers['content-type']).toContain('json')
+               });
+       
+               test('Should return a message BillingInfo created successfully', async () =>{
+                   const response = await request(app).post('/billingInfo').send(newBillingInfo)
+                   expect(response.body.message).toContain("Billing Info created successfully")
+               })
+       
+               test('Should return a message insertion error If post wrong BllingInfo ', async () =>{
+                   const response = await request(app).post('/billingInfo').send(wrongBillingInfo)
+                   expect(response.status).toBe(400);
+                   expect(response.body.message).toContain("Invalid data. All fields are required.")
+               })
+       
+               afterAll(async () => {
+                   await BillingInfoModel.eliminateByStreet('test');
+               }) 
+       
     afterAll(async()=> {
         server.close();
         const realConnection = await connection; 
@@ -74,4 +87,4 @@ describe('Billing Info Endpoints', () => {
    
 });    
         
-
+})

@@ -28,14 +28,14 @@ const getProductType = async (req: Request, res: Response) => {
 const createProductType = async (req: Request, res: Response) => {
     try {
         const newProductType = await ProductTypesModel.create(req.body);
+    
 
         if (!newProductType) {
             return res.status(400).json({ message: 'Need to introduce body data' });
         }
 
         res.status(201).json({
-            message: 'The product type has been created successfully',
-            productType: newProductType,
+            message: 'The product type has been created successfully'
         });
     } catch (error) {
         res.status(500).json({ message: (error as Error).message });

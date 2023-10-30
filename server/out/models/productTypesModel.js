@@ -1,15 +1,4 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -102,45 +91,26 @@ var ProductTypesModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        // Verificar si newProductType es un array y si tiene la propiedad insertId
-                        if (Array.isArray(newProductType) && 'insertId' in newProductType[0]) {
-                            // newProductType[0] contiene los resultados de la consulta
-                            return [2 /*return*/, __assign(__assign({}, productType), { types_id: newProductType[0].insertId })];
-                        }
-                        else {
-                            // En caso de que newProductType no sea un array o no tenga insertId
-                            return [2 /*return*/, null];
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, newProductType];
                 }
             });
         });
     },
     update: function (productType, id) {
         return __awaiter(this, void 0, void 0, function () {
-            var connection, product_type, _a, updatedProductType, metadata;
+            var connection, _a, updatedProductType, metadata;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
                     case 1:
                         connection = _b.sent();
-                        product_type = productType.product_type;
-                        return [4 /*yield*/, connection.query('UPDATE Product_Types SET product_type = ? WHERE types_id = UUID_TO_BIN(?)', [product_type, id])];
+                        return [4 /*yield*/, connection.query('UPDATE Product_Types SET product_type = ? WHERE types_id = UUID_TO_BIN(?)', [productType, id])];
                     case 2:
                         _a = _b.sent(), updatedProductType = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        // Verificar si updatedProductType es un array y si tiene la propiedad affectedRows
-                        if (Array.isArray(updatedProductType) && 'affectedRows' in updatedProductType[0]) {
-                            // updatedProductType[0] contiene los resultados de la consulta
-                            return [2 /*return*/, updatedProductType[0].affectedRows > 0 ? productType : null];
-                        }
-                        else {
-                            // En caso de que updatedProductType no sea un array o no tenga affectedRows
-                            return [2 /*return*/, null];
-                        }
-                        return [2 /*return*/];
+                        return [2 /*return*/, updatedProductType];
                 }
             });
         });
@@ -169,6 +139,25 @@ var ProductTypesModel = {
                             return [2 /*return*/, false];
                         }
                         return [2 /*return*/];
+                }
+            });
+        });
+    },
+    eliminateByType: function (type) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, _a, eliminatedProducts, metaData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
+                    case 1:
+                        connection = _b.sent();
+                        return [4 /*yield*/, connection.query('DELETE FROM Products-types WHERE product_type = ?', [type])];
+                    case 2:
+                        _a = _b.sent(), eliminatedProducts = _a[0], metaData = _a[1];
+                        return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
+                    case 3:
+                        _b.sent();
+                        return [2 /*return*/, eliminatedProducts];
                 }
             });
         });

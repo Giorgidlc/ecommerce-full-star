@@ -3,7 +3,7 @@ import { server, app } from '../src/index';
 import ShoppingCartDetailsModel from '../out/models/shoppingCartDetailsModel';
 import { openConnectionDb, closeConnectionDb } from '../out/config/db';
 
-describe("CRUD Shopping Cart Details Test", async () => {
+describe("CRUD Shopping Cart Details Test",  () => {
 
     //-----------------------------------------------GET---------------------------------------------------------------------
     let response;

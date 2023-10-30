@@ -85,20 +85,24 @@ var getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
 }); };
 exports.getUser = getUser;
 var createUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newUser, error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, user_name, surname, email, user_password, newUser, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, user_name = _a.user_name, surname = _a.surname, email = _a.email, user_password = _a.user_password;
+                if (!user_name || !surname || !email || !user_password) {
+                    return [2 /*return*/, res.status(400).json({ message: 'Invalid data. All fields are required.' })];
+                }
                 return [4 /*yield*/, userModel_1.default.create(req.body)];
             case 1:
-                newUser = _a.sent();
+                newUser = _b.sent();
                 if (!newUser) {
                     return [2 /*return*/, res.status(400).json({ message: 'Need to Introduce Body Data' })];
                 }
-                return [2 /*return*/, res.status(201).json({ message: 'The User has been created succesfully' })];
+                return [2 /*return*/, res.status(201).json({ message: 'The User has been created succesfully!' })];
             case 2:
-                error_3 = _a.sent();
+                error_3 = _b.sent();
                 return [2 /*return*/, res.json({ message: error_3.message })];
             case 3: return [2 /*return*/];
         }

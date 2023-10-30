@@ -84,16 +84,25 @@
         }
     },
 
-    async delete(id: string): Promise<boolean> {
+    async delete(id: string) {
         let connection = await openConnectionDb();
         const [deletedBillingInfo] = await connection.query(
         'DELETE FROM Billing_Info WHERE billing_id = UUID_TO_BIN(?)',
         [id]
         );
         await closeConnectionDb(connection);
-        return deletedBillingInfo && 'affectedRows' in deletedBillingInfo && deletedBillingInfo.affectedRows > 0;
+        return deletedBillingInfo;
     },
-    };
+    async eliminateByStreet(street: string){
+        
+        let connection = await openConnectionDb();
+        const [eliminatedProducts, metaData] = await connection.query('DELETE FROM Billing_info WHERE street = ?', [street]);
+        await closeConnectionDb(connection);
+        return eliminatedProducts;
+    }
+}
+
+    
 
     export default BillingInfoModel;
 

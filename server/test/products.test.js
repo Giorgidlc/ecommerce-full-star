@@ -59,7 +59,7 @@ describe("CRUD Products Test",() =>{
    
            test('Should return a message product created successfully', async () =>{
                const response = await request(app).post('/products').send(newProduct)
-               expect(response.body.message).toContain("The Product has been created successfully!")
+               expect(response.body.message).toContain("The Product has been created successfully")
            })
    
            test('Should return a message insertion error If post wrong product ', async () =>{

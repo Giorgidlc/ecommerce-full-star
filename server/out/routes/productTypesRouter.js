@@ -7,6 +7,7 @@ productTypesRouter.get('/', productTypesController_1.getProductTypes);
 productTypesRouter.get('/:id', productTypesController_1.getProductType);
 productTypesRouter.post('/', productTypesController_1.createProductType);
 productTypesRouter.put('/:id', productTypesController_1.updateProductType);
+productTypesRouter.put('/:id', productTypesController_1.updateProductType);
 productTypesRouter.delete('/:id', productTypesController_1.deleteProductTypeById);
 exports.default = productTypesRouter;
 //# sourceMappingURL=productTypesRouter.js.map

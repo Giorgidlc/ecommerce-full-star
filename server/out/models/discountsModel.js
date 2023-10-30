@@ -154,6 +154,25 @@ var DiscountsModel = {
                 }
             });
         });
+    },
+    eliminateByDiscount: function (discount) {
+        return __awaiter(this, void 0, void 0, function () {
+            var connection, _a, eliminatedDiscount, metaData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
+                    case 1:
+                        connection = _b.sent();
+                        return [4 /*yield*/, connection.query('DELETE FROM Discounts WHERE discount = ?', [discount])];
+                    case 2:
+                        _a = _b.sent(), eliminatedDiscount = _a[0], metaData = _a[1];
+                        return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
+                    case 3:
+                        _b.sent();
+                        return [2 /*return*/, eliminatedDiscount];
+                }
+            });
+        });
     }
 };
 exports.default = DiscountsModel;

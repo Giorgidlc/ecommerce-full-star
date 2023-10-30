@@ -67,12 +67,16 @@ var createPayingMethod = function (req, res) { return __awaiter(void 0, void 0, 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                paying_method_name = req.body.paying_method_name;
+                paying_method_name = req.body;
                 return [4 /*yield*/, payingMethodsModel_1.default.create(paying_method_name)];
             case 1:
                 newPayingMethod = _a.sent();
-                res.status(201).json({ message: 'Paying method created successfully', newPayingMethod: newPayingMethod });
-                return [3 /*break*/, 3];
+                console.log(paying_method_name);
+                if (!newPayingMethod) {
+                    return [2 /*return*/, res.status(400).json({ message: 'Need to Introduce Body Data' })];
+                }
+                res.status(201).json({ message: 'Paying method created successfully' });
+                return [2 /*return*/, newPayingMethod];
             case 2:
                 error_2 = _a.sent();
                 res.status(500).json({ message: error_2.message });
@@ -103,4 +107,25 @@ var deletePayingMethod = function (req, res) { return __awaiter(void 0, void 0, 
     });
 }); };
 exports.deletePayingMethod = deletePayingMethod;
+var updateProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var productId, updatedProduct, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                productId = req.params.id;
+                return [4 /*yield*/, payingMethodsModel_1.default.update(req.body, productId)];
+            case 1:
+                updatedProduct = _a.sent();
+                if (!updatedProduct) {
+                    return [2 /*return*/, res.status(400).json({ message: 'Need to Introduce Body Data' })];
+                }
+                return [2 /*return*/, res.status(200).json({ message: 'The Product has been updated succesfully' })];
+            case 2:
+                error_4 = _a.sent();
+                return [2 /*return*/, res.json({ message: error_4.message })];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 //# sourceMappingURL=payingMethodsController.js.map

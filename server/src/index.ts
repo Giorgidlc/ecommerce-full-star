@@ -15,7 +15,7 @@ import cors from 'cors';
 
 
 const app = express();
-const port = process.env.PORT ?? 5000;
+const port = 0;
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +23,11 @@ app.use(express.json());
 app.use('/products', productRouter);
 app.use('/users', userRouter);
 app.use('/shoppingCart', shoppingCartRouter);
-
+app.use('/billingInfo', billingInfoRouter);
+app.use('/discounts', discountsRouter);
+app.use('/media', mediaRouter);
+app.use('/payingMethods', payingMethodsRouter);
+app.use('/productTypes', productTypesRouter);
 
 app.get('/', (_req, res) => {
   res.status(200).send('Welcome to the Dreams and Coockies Server!!!');

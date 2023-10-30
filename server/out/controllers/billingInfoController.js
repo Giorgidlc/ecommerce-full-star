@@ -50,6 +50,9 @@ var getBillingInfo = function (_req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, billingInfoModel_1.default.findAll()];
             case 1:
                 billingInfo = _a.sent();
+                if (!billingInfo) {
+                    return [2 /*return*/, res.status(404).json({ message: 'Missing Data' })];
+                }
                 return [2 /*return*/, res.status(200).json(billingInfo)];
             case 2:
                 error_1 = _a.sent();
@@ -60,18 +63,25 @@ var getBillingInfo = function (_req, res) { return __awaiter(void 0, void 0, voi
 }); };
 exports.getBillingInfo = getBillingInfo;
 var createBillingInfo = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newBillingInfo, billingInfo, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, street, user_number, flat, door, zipcode, city, county, country, newBillingInfo, billingInfo, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, street = _a.street, user_number = _a.user_number, flat = _a.flat, door = _a.door, zipcode = _a.zipcode, city = _a.city, county = _a.county, country = _a.country;
+                if (!street || !user_number || !flat || !door || !zipcode || !city || !county || !country) {
+                    return [2 /*return*/, res.status(400).json({ message: 'Invalid data. All fields are required.' })];
+                }
                 newBillingInfo = req.body;
                 return [4 /*yield*/, billingInfoModel_1.default.create(newBillingInfo)];
             case 1:
-                billingInfo = _a.sent();
-                return [2 /*return*/, res.status(201).json({ message: 'Billing Info created successfully', billingInfo: billingInfo })];
+                billingInfo = _b.sent();
+                if (!billingInfo)
+                    res.status(400).json({ message: 'Invalid data. Empty Object.' });
+                { }
+                return [2 /*return*/, res.status(201).json({ message: 'Billing Info created successfully' })];
             case 2:
-                error_2 = _a.sent();
+                error_2 = _b.sent();
                 return [2 /*return*/, res.status(500).json({ message: error_2.message })];
             case 3: return [2 /*return*/];
         }

@@ -6,7 +6,7 @@ const ProductModel = {
     async findAll(){
     
         let connection = await openConnectionDb();
-        const [products, metadata] = await connection.query('SELECT * , BIN_TO_UUID(product_id) product_id FROM Products')
+        const [products, metadata] = await connection.query('SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products;')
         await closeConnectionDb(connection);//Cerrar la conexión en cada petición, podría ser ineficiente. Investigar como y donde hacerlo.
         return products;
     },
@@ -14,7 +14,7 @@ const ProductModel = {
     async findById(id: string){
         //SELECT * FROM  Products WHERE  id = UUID_TO_BIN('id')
         let connection = await openConnectionDb();
-        const [product, metadata] = await connection.query(`SELECT * , BIN_TO_UUID(product_id) product_id FROM Products WHERE product_id = UUID_TO_BIN("${id}")`)
+        const [product, metadata] = await connection.query(`SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products WHERE product_id = UUID_TO_BIN("${id}")`)
         await closeConnectionDb(connection);
         return product;
     },

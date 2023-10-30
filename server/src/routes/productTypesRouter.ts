@@ -7,6 +7,7 @@ productTypesRouter.get('/', getProductTypes);
 productTypesRouter.get('/:id', getProductType);
 productTypesRouter.post('/', createProductType);
 productTypesRouter.put('/:id', updateProductType);
+productTypesRouter.put('/:id', updateProductType);
 productTypesRouter.delete('/:id', deleteProductTypeById);
 
 export default productTypesRouter;

@@ -1,9 +1,9 @@
 import request from 'supertest';
 import {server,app} from '../out/index';
-import UserModel from '../out/models/userModel.';
+import UserModel from '../out/models/userModel';
 import {openConnectionDb, closeConnectionDb} from '../out/config/db';
 
-describe("CRUD Users Test",async() =>{ 
+describe("CRUD Users Test",() =>{ 
 
 
 //-----------------------------------------------GET---------------------------------------------------------------------
@@ -37,12 +37,10 @@ describe("CRUD Users Test",async() =>{
     describe('POST /users',() =>{ 
     
         const newUser = {
-            user_name: "test",
+            user_name: "test", 
             surname: "test",
             email: "test",
-            user_password: "test",
-            paying_method_id: "test",
-            register_date: "test"
+            user_password: "test"
         }
 
         const wrongUser = {
@@ -57,13 +55,13 @@ describe("CRUD Users Test",async() =>{
 
         test('Should return a message user created successfully', async () =>{
             const response = await request(app).post('/users').send(newUser)
-            expect(response.body.message).toContain("The user has been created successfully!")//¿Se podría eliminar este test y meter esta línea en el de arriba?
+            expect(response.body.message).toContain("The user has been created successfully!")
         })
 
         test('Should return a message insertion error If post wrong user', async () =>{
             const response = await request(app).post('/users').send(wrongUser)
-            expect(response.status).toBe(500);
-            expect(response.body.message).toContain("Field 'title' doesn't have a default value")// ¿title?
+            expect(response.status).toBe(400);
+            expect(response.body.message).toContain("Invalid data. All fields are required.")
         })
 
         afterAll(async () => {

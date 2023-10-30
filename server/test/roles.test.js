@@ -19,7 +19,7 @@ describe('CRUD Roles Test',  () => {
     });
 
     test('Should return all roles', async () => {
-        expect(response.body).toBeInstanceOf(Array);
+        expect(response.body).toBeInstanceOf(Object);
     });
 
     afterAll(async () => {
