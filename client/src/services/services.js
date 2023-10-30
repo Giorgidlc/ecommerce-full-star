@@ -15,3 +15,5 @@ const loaderProductsByCategory = async ({ params }) => {
 }
 
 export default loaderProductsByCategory
+
+

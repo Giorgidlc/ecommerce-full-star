@@ -8,13 +8,30 @@
 .nav-cardButtons__btn-nav {
   display: flex;
   width: 2.5rem;
+  height: 2.5rem;
   background: transparent;
   border: none;
-  
 }
 
-.icon-embed {
+.hidden-checkbox {
+  display: none;
+}
+
+.icon-embed-fav {
   flex-grow: 1;
   width: 0;
   object-fit: contain;
+  background-image: url("/src/assets/icon-fav.svg");
+  background-repeat: no-repeat;
+}
+
+.hidden-checkbox:checked + .icon-embed-fav {
+  flex-grow: 1;
+  width: 0;
+  object-fit: contain;
+  background-image: url("/src/assets/icon-liked.svg");
+}
+
+.icon-embed-fav:hover {
+ cursor: pointer;
 }

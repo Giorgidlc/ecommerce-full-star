@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import Header from "./Header";
+import PropTypes from 'prop-types'  
 import Logo from "./Logo";
 import ProductDetails from "./ProductDetails";
 import NavButtons from "./NavButtons";
@@ -8,17 +7,16 @@ const ProductsMainScreen = ({ product }) => {
   console.log(product)
  
   return (
-    <>
-      {/*  <BackgorundVideo /> */}
-      <Header />
-      <section className="wrapperDetails">
+    <main className="container-mainScreen">
+       {/*  <BackgorundVideo /> */}
+      <section className="wrapper-details">
         <Logo />
         <ProductDetails product={product} />
         <aside className="navProduct-btn">
           <NavButtons />
         </aside>
       </section>
-    </>
+    </main> 
   )
  
 }

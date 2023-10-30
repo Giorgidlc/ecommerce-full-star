@@ -30,9 +30,9 @@ const Login = () => {
 } 
     else {
         return(
-            <section className='signUpform--Page'>
+        <section className='signUpform--Page'>
             <SignUpForm />
-            <p> You already have an account? <a onClick={showLogin}>Log In</a></p>
+        <p className='mensageRegister'>  You already have an account? <a onClick={showLogin}>Log In</a></p>
         </section>
          )
         }

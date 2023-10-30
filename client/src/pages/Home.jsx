@@ -3,9 +3,34 @@ import '../styles/css/home.css';
 import { useLoaderData } from 'react-router-dom';
 import { Footer } from '../components/Footer.jsx';
 import ProductsMainScreen from '../components/ProductsMainScreen';
+import Header from '../components/Header';
 import VideoPlayer from '../components/VideoPlayer';
 
 const Home = () => {
+  const data = useLoaderData();
+  console.log(data);
+  const categoryName = data.categoryName
+  
+  return (
+    <main className="layout">
+      <section className='mainScreenProduct-wrapper'>
+        <header className="headerButtons">
+          <Header categoryName={categoryName} />
+        </header>
+      {data.products.length > 0 ? (
+          data.products.map((product) => (
+            <ProductsMainScreen key={product.id} product={product} />
+          )) 
+        ) : (
+          <h2>Card not found</h2>
+        )} 
+      </section>
+     
+      <section className="footer">
+          <Footer />
+      </section>
+  </main>
+  )
     const data = useLoaderData();
     const [videoName, setVideoName] = useState(""); // Define el estado para el nombre (ruta) del video
     const videoURL = `http://localhost:5000${videoName}`; // Construye la URL del video usando el estado
