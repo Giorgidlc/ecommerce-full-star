@@ -2,12 +2,12 @@
 //const URL_categories = "http://localhost:3000/categories/"
 
 const loaderProductsByCategory = async ({ params }) => {
-  const categoryId = params.categoryId;
+  const categoryId = params.types_id;
 
-  const resProducts = await fetch(`http://localhost:3000/products?categoryId=${categoryId}`);
+  const resProducts = await fetch(`http://localhost:5000/products?types_id=${categoryId}`);
   const products = await resProducts.json();
 
-  const resCategory = await fetch(`http://localhost:3000/categories/${categoryId}`);
+  const resCategory = await fetch(`http://localhost:5000/Product_Types/${categoryId}`);
   const category = await resCategory.json();
   const categoryName = category ? category.name : null;
   

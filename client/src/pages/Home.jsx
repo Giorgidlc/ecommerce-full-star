@@ -1,6 +1,6 @@
 import '../styles/css/home.css'
 import { useLoaderData, /* Outlet */ } from 'react-router-dom'
-import { Footer } from '../components/Footer.jsx'
+import Footer from '../components/Footer.jsx'
 import ProductsMainScreen from '../components/ProductsMainScreen';
 import Header from '../components/Header';
 import VideoPlayer from '../components/VideoPlayer';
