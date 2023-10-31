@@ -1,8 +1,6 @@
 .all-description {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
-  color: white;
   gap: 0.1rem;
 }
 
@@ -17,12 +15,13 @@
 
 .all-description__price {
   font: normal normal 0.75rem sans-serif;
-  background-color: #65AFDE;
+  background-color: #649dff;
   text-align: center;
   vertical-align: baseline;
   border-radius: 15px;
   width: 3.5rem;
   padding: 0.2rem;
+  color: white;
 }
 
 .all-description__description {

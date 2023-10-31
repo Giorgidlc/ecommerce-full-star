@@ -22,10 +22,10 @@ const DashboardButtons = ({prodId}) => {
     
   return (
     <>
-      <button className="ButtonsDashboard__btn-delete" onClick={() => removeProduct(prodId)}>
+      <button className="buttons__Dashboard" onClick={() => removeProduct(prodId)}>
         <img src={icons.at(0)} alt="" className="icon-delete" />
       </button>
-      <button className="ButtonsDashboard__btn-update">
+      <button className="buttons__Dashboard">
         <img src={icons.at(1)} alt="" className="icon-update" />
       </button>
       </>
