@@ -100,7 +100,7 @@ var createUser = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 if (!newUser) {
                     return [2 /*return*/, res.status(400).json({ message: 'Need to Introduce Body Data' })];
                 }
-                return [2 /*return*/, res.status(201).json({ message: 'The User has been created succesfully!' })];
+                return [2 /*return*/, res.status(201).json({ message: 'The User has been created successfully!' })];
             case 2:
                 error_3 = _b.sent();
                 return [2 /*return*/, res.json({ message: error_3.message })];

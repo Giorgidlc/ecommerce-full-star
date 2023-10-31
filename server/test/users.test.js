@@ -49,13 +49,13 @@ describe("CRUD Users Test",() =>{
 
         test('Should return a response with status 200 and type json', async () =>{
             const response = await request(app).post('/users').send(newUser)
-            expect(response.status).toBe(200)
+            expect(response.status).toBe(201)
             expect(response.headers['content-type']).toContain('json')
         });
 
         test('Should return a message user created successfully', async () =>{
             const response = await request(app).post('/users').send(newUser)
-            expect(response.body.message).toContain("The user has been created successfully!")
+            expect(response.body.message).toContain("The User has been created successfully!")
         })
 
         test('Should return a message insertion error If post wrong user', async () =>{

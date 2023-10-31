@@ -31,13 +31,15 @@ const createUser = async (req: Request, res: Response) => {
         const { user_name, surname, email, user_password } = req.body;
 
         if (!user_name || !surname || !email || !user_password) {
+            console.log( user_name, surname, email, user_password )
             return res.status(400).json({ message: 'Invalid data. All fields are required.'});
+
         }
         
         const newUser = await UserModel.create(req.body);
         
         if(!newUser){return res.status(400).json({message:'Need to Introduce Body Data'})}
-        return res.status(201).json({message:'The User has been created succesfully!'});
+        return res.status(201).json({message:'The User has been created successfully!'});
         
     } catch (error : unknown ) {
         return res.json({message:(error as Error).message})
