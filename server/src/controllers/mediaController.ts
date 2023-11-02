@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import MediaModel from '../models/mediaModel';
 
-const getMedia = async (_req: Request, res: Response) => {
+const getMedia = async (_req: Request, res: Response):Promise<Response> => {
     try {
         const media = await MediaModel.findAll();
         return res.status(200).json(media);

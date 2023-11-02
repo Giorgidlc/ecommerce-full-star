@@ -27,29 +27,29 @@ const ProductModel = {
         return (newProduct as Products[])[0] || null;
     },
 
-    async update(product : Products, id: string){ 
+    async update(product : Products, id: string): Promise<Products | null>{ 
     
         let connection = await openConnectionDb();
         let {product_name, product_description, price, stock, product_type_id, product_discount_id} = product;
         const [updatedProduct, metaData] = await connection.query('UPDATE Products SET product_name = ?, product_description = ?, price = ?, stock = ?, product_type_id = ?, product_discount_id = ?, WHERE product_id = UUID_TO_BIN(?)', [product_name, product_description, price, stock,product_type_id, product_discount_id, id])
         await closeConnectionDb(connection);
-        return updatedProduct;
+        return (updatedProduct as Products[])[0] || null;
     },
 
-    async eliminateById(id: string){
+    async eliminateById(id: string): Promise<Products| null>{
         
         let connection = await openConnectionDb();
         const [eliminatedProduct, metaData] = await connection.query('DELETE FROM Products WHERE product_id = UUID_TO_BIN(?)', [id]);
         await closeConnectionDb(connection);
-        return eliminatedProduct;
+        return (eliminatedProduct as Products[])[0]|| null;
     },
 
-    async eliminateByName(name: string){
+    async eliminateByName(name: string):Promise<Products| null>{
         
         let connection = await openConnectionDb();
-        const [eliminatedProducts, metaData] = await connection.query('DELETE FROM Products WHERE product_name = ?', [name]);
+        const [eliminatedProduct, metaData] = await connection.query('DELETE FROM Products WHERE product_name = ?', [name]);
         await closeConnectionDb(connection);
-        return eliminatedProducts;
+        return (eliminatedProduct as Products[])[0]|| null;
     }
 }
 

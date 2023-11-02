@@ -1,17 +1,5 @@
     import { openConnectionDb, closeConnectionDb } from '../config/db';
-
-    type BillingInfo = {
-    billing_id: string;
-    street: string;
-    user_number: number;
-    flat: number | null;
-    door: string | null;
-    zipcode: string;
-    county: string;
-    city: string;
-    country: string;
-    user_id: string;
-    };
+    import { BillingInfo } from '../types/billingInfoTypes';
 
     const BillingInfoModel = {
     async create(billingInfo: BillingInfo): Promise<BillingInfo | null> {

@@ -48,12 +48,12 @@ const DiscountsModel = {
             await closeConnectionDb(connection);
             return Array.isArray(deletedDiscount) && deletedDiscount.length > 0;
         },
-        async eliminateByDiscount(discount: string){
+        async eliminateByDiscount(discount: string): Promise<Discount | null>{
         
             let connection = await openConnectionDb();
             const [eliminatedDiscount, metaData] = await connection.query('DELETE FROM Discounts WHERE discount = ?', [discount]);
             await closeConnectionDb(connection);
-            return eliminatedDiscount;
+            return (eliminatedDiscount as Discount[])[0] || null;
         }
 };
 

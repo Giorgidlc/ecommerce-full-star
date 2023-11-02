@@ -2,7 +2,7 @@ import { Request,Response } from "express";
 import ProductModel from "../models/productModel";
 import { Products } from "../types/productsTypes";
 
-const getProducts = async (_req: Request, res: Response) => {
+const getProducts = async (_req: Request, res: Response): Promise<Response> => {
     try {
 
         const products = await ProductModel.findAll();
@@ -34,7 +34,7 @@ const getProduct = async (req: Request, res:Response ) => {
 
 }
 
-const createProduct = async (req: Request, res: Response) => {
+const createProduct = async (req: Request, res: Response) :Promise<Response> => {
     try {
         const { product_name, product_description, price, stock } = req.body;
 
