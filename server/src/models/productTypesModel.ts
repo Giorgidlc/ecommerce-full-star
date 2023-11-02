@@ -1,12 +1,8 @@
 import { openConnectionDb, closeConnectionDb } from '../config/db';
-
-type ProductType = {
-    types_id: string;
-    product_type: string;
-};
+import { ProductType } from '../types/productTypeTypes';
 
 const ProductTypesModel = {
-    async findAll(): Promise<ProductType[]> {
+    async findAll(): Promise<ProductType[]| null> {
         let connection = await openConnectionDb();
         const [productTypes, metadata] = await connection.query('SELECT * , BIN_TO_UUID(types_id) types_id FROM Product_Types');
         await closeConnectionDb(connection);
@@ -23,7 +19,7 @@ const ProductTypesModel = {
         return (productType as ProductType[])[0] || null; // Especifica explícitamente el tipo de productType como ProductType[] o null si no hay resultados
     },
 
-    async create(productType: ProductType) {
+    async create(productType: ProductType):  Promise<ProductType | null>{
         let connection = await openConnectionDb();
         const { product_type } = productType;
         const [newProductType, metadata] = await connection.query(
@@ -32,10 +28,10 @@ const ProductTypesModel = {
         );
         await closeConnectionDb(connection);
     
-      return  newProductType;
+      return (newProductType as ProductType[])[0] || null;
     },
     
-    async update(productType: ProductType, id: string){
+    async update(productType: ProductType, id: string): Promise<ProductType | null>{
         let connection = await openConnectionDb();
 
         const [updatedProductType, metadata] = await connection.query(
@@ -44,7 +40,7 @@ const ProductTypesModel = {
         );
         await closeConnectionDb(connection);
 
-        return updatedProductType;
+        return (updatedProductType as ProductType[])[0] || null;;
        
     },
 
@@ -61,16 +57,16 @@ const ProductTypesModel = {
             // deletedProductType[0] contiene los resultados de la consulta
             return deletedProductType[0].affectedRows > 0;
         } else {
-            // En caso de que deletedProductType no sea un array o no tenga affectedRows
+
             return false;
         }
     } ,
-    async eliminateByType(type: string){
+    async eliminateByType(type: string): Promise<ProductType | null>{
         
         let connection = await openConnectionDb();
         const [eliminatedProducts, metaData] = await connection.query('DELETE FROM Products-types WHERE product_type = ?', [type]);
         await closeConnectionDb(connection);
-        return eliminatedProducts;
+        return (eliminatedProducts as ProductType[])[0]|| null;
     }
 };
 

@@ -3,29 +3,28 @@ import { Products } from "../types/productsTypes";
 
 const ProductModel = {
 
-    async findAll(){
+    async findAll():Promise<Products[]| null>{
     
         let connection = await openConnectionDb();
         const [products, metadata] = await connection.query('SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products;')
         await closeConnectionDb(connection);//Cerrar la conexión en cada petición, podría ser ineficiente. Investigar como y donde hacerlo.
-        return products;
+        return products as Products[];
     },
 
-    async findById(id: string){
-        //SELECT * FROM  Products WHERE  id = UUID_TO_BIN('id')
+    async findById(id: string): Promise<Products | null> {
         let connection = await openConnectionDb();
         const [product, metadata] = await connection.query(`SELECT BIN_TO_UUID(product_id) AS product_id, product_name, product_description, price, stock, BIN_TO_UUID(product_type_id) AS product_type_id, BIN_TO_UUID(product_discount_id) AS product_discount_id FROM Products WHERE product_id = UUID_TO_BIN("${id}")`)
         await closeConnectionDb(connection);
-        return product;
+        return (product as Products[])[0] || null;
     },
 
-    async create(product: Products){
+    async create(product: Products): Promise<Products | null>{
     
         let connection = await openConnectionDb();
         let {product_name, product_description, price, stock, product_type_id, product_discount_id} = product;
         const [newProduct, metadata] = await connection.query("INSERT INTO Products (product_name, product_description, price, stock, product_type_id, product_discount_id) VALUES (?, ?, ?, ?, UUID_TO_BIN(?), UUID_TO_BIN(?))", [product_name, product_description, price, stock, product_type_id, product_discount_id]);
         await closeConnectionDb(connection);
-        return newProduct;
+        return (newProduct as Products[])[0] || null;
     },
 
     async update(product : Products, id: string){ 

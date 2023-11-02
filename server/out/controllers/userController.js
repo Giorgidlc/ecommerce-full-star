@@ -92,6 +92,7 @@ var createUser = function (req, res) { return __awaiter(void 0, void 0, void 0, 
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, user_name = _a.user_name, surname = _a.surname, email = _a.email, user_password = _a.user_password;
                 if (!user_name || !surname || !email || !user_password) {
+                    console.log(user_name, surname, email, user_password);
                     return [2 /*return*/, res.status(400).json({ message: 'Invalid data. All fields are required.' })];
                 }
                 return [4 /*yield*/, userModel_1.default.create(req.body)];
