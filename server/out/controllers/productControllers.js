@@ -97,6 +97,7 @@ var createProduct = function (req, res) { return __awaiter(void 0, void 0, void 
                 return [4 /*yield*/, productModel_1.default.create(req.body)];
             case 1:
                 newProduct = _b.sent();
+                console.log(newProduct);
                 if (!newProduct) {
                     return [2 /*return*/, res.status(400).json({ message: 'Missing Data' })];
                 }

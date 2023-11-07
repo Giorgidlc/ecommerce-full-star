@@ -1,9 +1,6 @@
 import { openConnectionDb, closeConnectionDb } from "../config/db";
+import { Discount } from "../types/discountTypes";
 
-type Discount = {
-    discount_id: string;
-    discount: string;
-};
 
 const DiscountsModel = {
     async findAll(): Promise<Discount[]> {

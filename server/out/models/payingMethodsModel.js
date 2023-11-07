@@ -71,7 +71,7 @@ var PayingMethodsModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, newPayingMethod];
+                        return [2 /*return*/, newPayingMethod[0] || null];
                 }
             });
         });
@@ -90,7 +90,7 @@ var PayingMethodsModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, deletedPayingMethod];
+                        return [2 /*return*/, deletedPayingMethod[0] || null];
                 }
             });
         });
@@ -134,7 +134,7 @@ var PayingMethodsModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedPayingMethod];
+                        return [2 /*return*/, eliminatedPayingMethod[0] || null];
                 }
             });
         });

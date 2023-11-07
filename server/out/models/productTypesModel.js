@@ -91,7 +91,7 @@ var ProductTypesModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, newProductType];
+                        return [2 /*return*/, newProductType[0] || null];
                 }
             });
         });
@@ -110,7 +110,7 @@ var ProductTypesModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, updatedProductType];
+                        return [2 /*return*/, updatedProductType[0] || null];
                 }
             });
         });
@@ -135,7 +135,6 @@ var ProductTypesModel = {
                             return [2 /*return*/, deletedProductType[0].affectedRows > 0];
                         }
                         else {
-                            // En caso de que deletedProductType no sea un array o no tenga affectedRows
                             return [2 /*return*/, false];
                         }
                         return [2 /*return*/];
@@ -157,7 +156,7 @@ var ProductTypesModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedProducts];
+                        return [2 /*return*/, eliminatedProducts[0] || null];
                 }
             });
         });

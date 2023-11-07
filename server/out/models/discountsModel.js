@@ -169,7 +169,7 @@ var DiscountsModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedDiscount];
+                        return [2 /*return*/, eliminatedDiscount[0] || null];
                 }
             });
         });

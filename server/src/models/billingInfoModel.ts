@@ -39,7 +39,7 @@
 
     async findById(id: string): Promise<BillingInfo | null> {
         let connection = await openConnectionDb();
-        const [billingInfo] = await connection.query(
+        const [billingInfo,metaData] = await connection.query(
         'SELECT * , BIN_TO_UUID(billing_id) billing_id, street, user_number, flat, door, zipcode, county, city, country, BIN_TO_UUID(user_id) user_id FROM Billing_Info WHERE billing_id = UUID_TO_BIN(?)',
         [id]
         );
@@ -72,21 +72,21 @@
         }
     },
 
-    async delete(id: string) {
+    async delete(id: string):  Promise<BillingInfo | null>{
         let connection = await openConnectionDb();
         const [deletedBillingInfo] = await connection.query(
         'DELETE FROM Billing_Info WHERE billing_id = UUID_TO_BIN(?)',
         [id]
         );
         await closeConnectionDb(connection);
-        return deletedBillingInfo;
+        return (deletedBillingInfo as BillingInfo[])[0] || null;
     },
-    async eliminateByStreet(street: string){
+    async eliminateByStreet(street: string): Promise<BillingInfo | null>{
         
         let connection = await openConnectionDb();
         const [eliminatedProducts, metaData] = await connection.query('DELETE FROM Billing_info WHERE street = ?', [street]);
         await closeConnectionDb(connection);
-        return eliminatedProducts;
+        return (eliminatedProducts as BillingInfo[])[0] || null;
     }
 }
 

@@ -93,18 +93,18 @@ var BillingInfoModel = {
     },
     findById: function (id) {
         return __awaiter(this, void 0, void 0, function () {
-            var connection, billingInfo;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            var connection, _a, billingInfo, metaData;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
                     case 1:
-                        connection = _a.sent();
+                        connection = _b.sent();
                         return [4 /*yield*/, connection.query('SELECT * , BIN_TO_UUID(billing_id) billing_id, street, user_number, flat, door, zipcode, county, city, country, BIN_TO_UUID(user_id) user_id FROM Billing_Info WHERE billing_id = UUID_TO_BIN(?)', [id])];
                     case 2:
-                        billingInfo = (_a.sent())[0];
+                        _a = _b.sent(), billingInfo = _a[0], metaData = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
-                        _a.sent();
+                        _b.sent();
                         return [2 /*return*/, billingInfo[0] || null];
                 }
             });
@@ -150,7 +150,7 @@ var BillingInfoModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _a.sent();
-                        return [2 /*return*/, deletedBillingInfo];
+                        return [2 /*return*/, deletedBillingInfo[0] || null];
                 }
             });
         });
@@ -169,7 +169,7 @@ var BillingInfoModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedProducts];
+                        return [2 /*return*/, eliminatedProducts[0] || null];
                 }
             });
         });

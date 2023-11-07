@@ -43,7 +43,7 @@ const createProduct = async (req: Request, res: Response) :Promise<Response> => 
         }
         
        const newProduct = await ProductModel.create(req.body);
-
+       console.log(newProduct)
        if(!newProduct){return res.status(400).json({message:'Missing Data'})}
        return  res.status(201).json({message:'The Product has been created successfully!'});
         

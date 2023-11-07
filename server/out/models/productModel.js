@@ -51,7 +51,7 @@ var ProductModel = {
                         _a = _b.sent(), products = _a[0], metadata = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
-                        _b.sent(); //Cerrar la conexión en cada petición, podría ser ineficiente. Investigar como y donde hacerlo.
+                        _b.sent();
                         return [2 /*return*/, products];
                 }
             });
@@ -71,7 +71,7 @@ var ProductModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, product];
+                        return [2 /*return*/, product[0] || null];
                 }
             });
         });
@@ -91,7 +91,8 @@ var ProductModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, newProduct];
+                        console.log(newProduct);
+                        return [2 /*return*/, newProduct[0] || null];
                 }
             });
         });
@@ -105,13 +106,13 @@ var ProductModel = {
                     case 1:
                         connection = _b.sent();
                         product_name = product.product_name, product_description = product.product_description, price = product.price, stock = product.stock, product_type_id = product.product_type_id, product_discount_id = product.product_discount_id;
-                        return [4 /*yield*/, connection.query('UPDATE Products SET product_name = ?, product_description = ?, price = ?, stock = ?, product_type_id = ?, product_discount_id = ?, WHERE product_id = UUID_TO_BIN(?)', [product_name, product_description, price, stock, product_type_id, product_discount_id, id])];
+                        return [4 /*yield*/, connection.query('UPDATE Products SET product_name = ?, product_description = ?, price = ?, stock = ?, product_type_id = ?, product_discount_id = ? WHERE product_id = UUID_TO_BIN(?)', [product_name, product_description, price, stock, product_type_id, product_discount_id, id])];
                     case 2:
                         _a = _b.sent(), updatedProduct = _a[0], metaData = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, updatedProduct];
+                        return [2 /*return*/, updatedProduct[0] || null];
                 }
             });
         });
@@ -130,14 +131,14 @@ var ProductModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedProduct];
+                        return [2 /*return*/, eliminatedProduct[0] || null];
                 }
             });
         });
     },
     eliminateByName: function (name) {
         return __awaiter(this, void 0, void 0, function () {
-            var connection, _a, eliminatedProducts, metaData;
+            var connection, _a, eliminatedProduct, metaData;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0: return [4 /*yield*/, (0, db_1.openConnectionDb)()];
@@ -145,11 +146,11 @@ var ProductModel = {
                         connection = _b.sent();
                         return [4 /*yield*/, connection.query('DELETE FROM Products WHERE product_name = ?', [name])];
                     case 2:
-                        _a = _b.sent(), eliminatedProducts = _a[0], metaData = _a[1];
+                        _a = _b.sent(), eliminatedProduct = _a[0], metaData = _a[1];
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedProducts];
+                        return [2 /*return*/, eliminatedProduct[0] || null];
                 }
             });
         });

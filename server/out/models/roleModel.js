@@ -71,7 +71,7 @@ var RoleModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, role];
+                        return [2 /*return*/, role[0] || null];
                 }
             });
         });
@@ -91,7 +91,7 @@ var RoleModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, newRole];
+                        return [2 /*return*/, newRole[0] || null];
                 }
             });
         });
@@ -111,7 +111,7 @@ var RoleModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, updatedRole];
+                        return [2 /*return*/, updatedRole[0] || null];
                 }
             });
         });
@@ -130,7 +130,7 @@ var RoleModel = {
                         return [4 /*yield*/, (0, db_1.closeConnectionDb)(connection)];
                     case 3:
                         _b.sent();
-                        return [2 /*return*/, eliminatedRole];
+                        return [2 /*return*/, eliminatedRole[0] || null];
                 }
             });
         });

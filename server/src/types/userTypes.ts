@@ -11,9 +11,9 @@ type Users = {
     user_name: string;
     surname: string,
     email: string;
-    user_password: number; 
-    paying_method_id: any;
-    register_date: any; //Investigar si es "any" o "string"
+    user_password: string; 
+    paying_method_id: string;
+    register_date: string; //Investigar si es "any" o "string"
 }
 
 export {Users, HttpUserResponse};
